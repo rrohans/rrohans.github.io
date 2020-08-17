@@ -1,0 +1,626 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Linear Search And Max Value - Rohan&#8217;s Coding Blog</title>
+<meta name="description" content="Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far.  Linear Search  The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one.  Let’s begin.  First off, we need a list to actually check values in:  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers   Now we need a number that we wish to know if its in our list.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find   Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for elements in list_of_numbers: # Loops over each element.     pass # Pass tells Python to ignore the execute of the block   Great! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for element in list_of_numbers: # Loops over each element.     if element == target_number:         print(&quot;Target Number Inside the List&quot;)         break # Exits the loop if the condition is True else:     print(&quot;Target Number is NOT Inside the List&quot;)   And with that, we are done.  Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead.  Max Value  The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list.  We can reuse bits of the code used for the previous algorithm: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers  for element in list_of_numbers: # Loops over each element.     pass   With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     pass   Now we have to check each value against each value in the list. We can again use an if statement to help us out.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     if element &gt; max_value: # Checks if the current max value is less than an element         max_value = element # Switches the old max value to the new max value  print(max_value) # Prints max value   With that, we are done.  Note: This program would work even if the numbers in the list we’re not in ascending order.  Why not try to edit this program to find the smallest value in a list?">
+
+
+  <meta name="author" content="Rohan S">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rohan's Coding Blog">
+<meta property="og:title" content="Linear Search And Max Value">
+<meta property="og:url" content="/python/tutorial/Linear-Search-and-Max-Value">
+
+
+  <meta property="og:description" content="Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far.  Linear Search  The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one.  Let’s begin.  First off, we need a list to actually check values in:  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers   Now we need a number that we wish to know if its in our list.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find   Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for elements in list_of_numbers: # Loops over each element.     pass # Pass tells Python to ignore the execute of the block   Great! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for element in list_of_numbers: # Loops over each element.     if element == target_number:         print(&quot;Target Number Inside the List&quot;)         break # Exits the loop if the condition is True else:     print(&quot;Target Number is NOT Inside the List&quot;)   And with that, we are done.  Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead.  Max Value  The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list.  We can reuse bits of the code used for the previous algorithm: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers  for element in list_of_numbers: # Loops over each element.     pass   With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     pass   Now we have to check each value against each value in the list. We can again use an if statement to help us out.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     if element &gt; max_value: # Checks if the current max value is less than an element         max_value = element # Switches the old max value to the new max value  print(max_value) # Prints max value   With that, we are done.  Note: This program would work even if the numbers in the list we’re not in ascending order.  Why not try to edit this program to find the smallest value in a list?">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-07-29T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="/python/tutorial/Linear-Search-and-Max-Value">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Rohan's Coding Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Rohan's Coding Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/editor/">Editor</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">GETTING STARTED</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/python/tutorial/Intro">Intro</a></li>
+          
+            <li><a href="/python/tutorial/wisp">What is Python?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Basics</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/python/tutorial//Numbers">Numbers</a></li>
+          
+            <li><a href="/python/tutorial//Numbers#number-operators">• Number Operators</a></li>
+          
+            <li><a href="/python/tutorial/Strings">Strings</a></li>
+          
+            <li><a href="/python/tutorial//Strings#string-operator(s)">• String Operators</a></li>
+          
+            <li><a href="/python/tutorial/Collections">Collections</a></li>
+          
+            <li><a href="/python/tutorial/Collections#lists-tuples-dictionaries">• List, Tuples, and Dictionaries</a></li>
+          
+            <li><a href="/python/tutorial/Collections#ordered-and-indexed">• Ordered and Indexed</a></li>
+          
+            <li><a href="/python/tutorial/Collections#changeable-vs-unchangeable">• Changeable and Unchangeable</a></li>
+          
+            <li><a href="/python/tutorial/Collections#duplicates">• Duplicates</a></li>
+          
+            <li><a href="/python/tutorial/Booleans">Booleans</a></li>
+          
+            <li><a href="/python/tutorial/Variables">Variables</a></li>
+          
+            <li><a href="/python/tutorial/Variables#operation-inheritance">• Operation Inheritance</a></li>
+          
+            <li><a href="/python/tutorial/Variables#special-properties">• Special Properties</a></li>
+          
+            <li><a href="/python/tutorial/Variables#strings-lists-dictionaries-tuples">• Strings and Collections</a></li>
+          
+            <li><a href="/python/tutorial/Logic">Comparison Operators</a></li>
+          
+            <li><a href="/python/tutorial/Logic#operators">• Operators</a></li>
+          
+            <li><a href="/python/tutorial/Logic#truth-table">• Truth Tables</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals">Conditionals</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals#the-if-statement">• If Statements</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals#ifelifelse-statements">• If/elif/else Statements</a></li>
+          
+            <li><a href="/python/tutorial/Loops">Loops</a></li>
+          
+            <li><a href="/python/tutorial/Loops#for-loop">• For Loop</a></li>
+          
+            <li><a href="/python/tutorial/Loops#while-loop">• While Loop</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value" class="active">Example 1</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value#linear-search">• Linear Search</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value#max-value">• Max Value</a></li>
+          
+            <li><a href="/python/tutorial/Functions">Functions</a></li>
+          
+            <li><a href="/python/tutorial/Functions#calling-functions">• Callings Functions</a></li>
+          
+            <li><a href="/python/tutorial/Functions#function-parameters">• Function Parameters</a></li>
+          
+            <li><a href="/python/tutorial/Functions#function-returns">• Function Returns</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued">Example 1.5</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued#linear-search">• Linear Search</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued#max-value">• Max Value</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Linear Search And Max Value">
+    <meta itemprop="description" content="Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far.Linear SearchThe first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one.Let’s begin.First off, we need a list to actually check values in:list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbersNow we need a number that we wish to know if its in our list.list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numberstarget_number = 7 # This is the number we want to findNow that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice.list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numberstarget_number = 7 # This is the number we want to findfor elements in list_of_numbers: # Loops over each element.    pass # Pass tells Python to ignore the execute of the blockGreat! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the resultlist_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numberstarget_number = 7 # This is the number we want to findfor element in list_of_numbers: # Loops over each element.    if element == target_number:        print(&quot;Target Number Inside the List&quot;)        break # Exits the loop if the condition is Trueelse:    print(&quot;Target Number is NOT Inside the List&quot;)And with that, we are done.Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead.Max ValueThe second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list.We can reuse bits of the code used for the previous algorithm:list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbersfor element in list_of_numbers: # Loops over each element.    passWith that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value.list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbersmax_value = list_of_numbers[0] # Sets max value to the first element.for element in list_of_numbers: # Loops over each element.    passNow we have to check each value against each value in the list. We can again use an if statement to help us out.list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbersmax_value = list_of_numbers[0] # Sets max value to the first element.for element in list_of_numbers: # Loops over each element.    if element &gt; max_value: # Checks if the current max value is less than an element        max_value = element # Switches the old max value to the new max valueprint(max_value) # Prints max valueWith that, we are done.Note: This program would work even if the numbers in the list we’re not in ascending order.Why not try to edit this program to find the smallest value in a list?">
+    <meta itemprop="datePublished" content="2020-07-29T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Linear Search And Max Value
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far.</p>
+
+<h3 id="linear-search">Linear Search</h3>
+
+<p>The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one.</p>
+
+<p>Let’s begin.</p>
+
+<p>First off, we need a list to actually check values in:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span></code></pre></div></div>
+
+<p>Now we need a number that we wish to know if its in our list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span><span class="n">target_number</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># This is the number we want to find
+</span></code></pre></div></div>
+
+<p>Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span><span class="n">target_number</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># This is the number we want to find
+</span>
+<span class="k">for</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span> <span class="c1"># Loops over each element.
+</span>    <span class="k">pass</span> <span class="c1"># Pass tells Python to ignore the execute of the block
+</span></code></pre></div></div>
+
+<p>Great! Now is the <em>hard part</em>. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span><span class="n">target_number</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># This is the number we want to find
+</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span> <span class="c1"># Loops over each element.
+</span>    <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="n">target_number</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Target Number Inside the List"</span><span class="p">)</span>
+        <span class="k">break</span> <span class="c1"># Exits the loop if the condition is True
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Target Number is NOT Inside the List"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And with that, we are done.</p>
+
+<p>Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead.</p>
+
+<h3 id="max-value">Max Value</h3>
+
+<p>The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list.</p>
+
+<p>We can reuse bits of the code used for the previous algorithm:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span> <span class="c1"># Loops over each element.
+</span>    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to <strong>claim</strong> that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span><span class="n">max_value</span> <span class="o">=</span> <span class="n">list_of_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Sets max value to the first element.
+</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span> <span class="c1"># Loops over each element.
+</span>    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>Now we have to check each value against each value in the list. We can again use an if statement to help us out.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="c1"># Our list of numbers
+</span><span class="n">max_value</span> <span class="o">=</span> <span class="n">list_of_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Sets max value to the first element.
+</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span> <span class="c1"># Loops over each element.
+</span>    <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="n">max_value</span><span class="p">:</span> <span class="c1"># Checks if the current max value is less than an element
+</span>        <span class="n">max_value</span> <span class="o">=</span> <span class="n">element</span> <span class="c1"># Switches the old max value to the new max value
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">max_value</span><span class="p">)</span> <span class="c1"># Prints max value
+</span></code></pre></div></div>
+
+<p>With that, we are done.</p>
+
+<p>Note: This program would work even if the numbers in the list we’re not in ascending order.</p>
+
+<p>Why not try to edit this program to find the smallest value in a list?</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#tutorial" class="page__taxonomy-item" rel="tag">tutorial</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-07-29T00:00:00-04:00">July 29, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/tutorial/Functions" class="pagination--pager" title="Functions
+">Previous</a>
+    
+    
+      <a href="/python/tutorial/Linear-Search-and-Max-Value-Continued" class="pagination--pager" title="Linear Search And Max Value Continued
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Linear-Search-and-Max-Value-Continued" rel="permalink">Linear Search And Max Value Continued
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Now that we know what functions are in Python and how we use them, why don’t we take a look back at our first examples and turn them into functions.
+
+Lets be...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Functions" rel="permalink">Functions
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Functions in Python are reusable lines of code that only run once they are called on.
+
+Functions can be used to shorten the overall lines of code needed in a...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hello/" rel="permalink">Hello
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Welcome to the Blog
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/wisp" rel="permalink">What is Python
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The Python Programming Language
+
+Python is a dynamically typed, interpreted, high-level programming language created by Guido van Rossum in 1990.
+
+Python has...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+  
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2020 Rohan's Coding Blog.</div>
+  
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

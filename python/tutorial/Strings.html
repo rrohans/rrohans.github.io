@@ -1,0 +1,580 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Strings - Rohan&#8217;s Coding Blog</title>
+<meta name="description" content="Strings  Strings are sequences of characters in Python  In short, Strings are/can be bits of text, numbers, and symbols that can be stored  The common way of denoting a string is to surround it with quotation marks, double or single  &quot;This is a string&quot; &#39;This is also a string&#39; &quot;23&quot; # this is a string even though it contains only a number      Strings must begin and end with the same type of quotation mark   # These are not valid strings since they start and begin with different quotation marks &quot;This is not a valid string&#39;  &#39;This is also not a valid string&quot;   Additionally we can nest quotation marks within strings if they are of different count  &quot;Your vs You&#39;re&quot; # contains a single quote within double quotes string &#39;&quot;I like python,&quot; said James&#39; # contains double quotes within a single quote string   String Operator(s)  Like numbers, strings can be manipulated in many ways. The most basic string manipulation is called concatenation  Concatenation is the ability to ‘add’ one or more strings together using the + symbol  &quot;Hello&quot; + &quot;Goodbye&quot; # equals HelloGoodbye &#39;Sweet&#39; + &#39; &#39; + &#39;and&#39; + &#39; &#39; + &#39;sour&#39; # equals Sweet and sour &quot;John &quot; + &quot;Doe&quot; # equals John Doe   Later, we’ll explore some more of the different methods that the String Class has to offer in Python">
+
+
+  <meta name="author" content="Rohan S">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rohan's Coding Blog">
+<meta property="og:title" content="Strings">
+<meta property="og:url" content="/python/tutorial/Strings">
+
+
+  <meta property="og:description" content="Strings  Strings are sequences of characters in Python  In short, Strings are/can be bits of text, numbers, and symbols that can be stored  The common way of denoting a string is to surround it with quotation marks, double or single  &quot;This is a string&quot; &#39;This is also a string&#39; &quot;23&quot; # this is a string even though it contains only a number      Strings must begin and end with the same type of quotation mark   # These are not valid strings since they start and begin with different quotation marks &quot;This is not a valid string&#39;  &#39;This is also not a valid string&quot;   Additionally we can nest quotation marks within strings if they are of different count  &quot;Your vs You&#39;re&quot; # contains a single quote within double quotes string &#39;&quot;I like python,&quot; said James&#39; # contains double quotes within a single quote string   String Operator(s)  Like numbers, strings can be manipulated in many ways. The most basic string manipulation is called concatenation  Concatenation is the ability to ‘add’ one or more strings together using the + symbol  &quot;Hello&quot; + &quot;Goodbye&quot; # equals HelloGoodbye &#39;Sweet&#39; + &#39; &#39; + &#39;and&#39; + &#39; &#39; + &#39;sour&#39; # equals Sweet and sour &quot;John &quot; + &quot;Doe&quot; # equals John Doe   Later, we’ll explore some more of the different methods that the String Class has to offer in Python">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-05-25T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="/python/tutorial/Strings">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Rohan's Coding Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Rohan's Coding Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/editor/">Editor</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">GETTING STARTED</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/python/tutorial/Intro">Intro</a></li>
+          
+            <li><a href="/python/tutorial/wisp">What is Python?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Basics</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/python/tutorial//Numbers">Numbers</a></li>
+          
+            <li><a href="/python/tutorial//Numbers#number-operators">• Number Operators</a></li>
+          
+            <li><a href="/python/tutorial/Strings" class="active">Strings</a></li>
+          
+            <li><a href="/python/tutorial//Strings#string-operator(s)">• String Operators</a></li>
+          
+            <li><a href="/python/tutorial/Collections">Collections</a></li>
+          
+            <li><a href="/python/tutorial/Collections#lists-tuples-dictionaries">• List, Tuples, and Dictionaries</a></li>
+          
+            <li><a href="/python/tutorial/Collections#ordered-and-indexed">• Ordered and Indexed</a></li>
+          
+            <li><a href="/python/tutorial/Collections#changeable-vs-unchangeable">• Changeable and Unchangeable</a></li>
+          
+            <li><a href="/python/tutorial/Collections#duplicates">• Duplicates</a></li>
+          
+            <li><a href="/python/tutorial/Booleans">Booleans</a></li>
+          
+            <li><a href="/python/tutorial/Variables">Variables</a></li>
+          
+            <li><a href="/python/tutorial/Variables#operation-inheritance">• Operation Inheritance</a></li>
+          
+            <li><a href="/python/tutorial/Variables#special-properties">• Special Properties</a></li>
+          
+            <li><a href="/python/tutorial/Variables#strings-lists-dictionaries-tuples">• Strings and Collections</a></li>
+          
+            <li><a href="/python/tutorial/Logic">Comparison Operators</a></li>
+          
+            <li><a href="/python/tutorial/Logic#operators">• Operators</a></li>
+          
+            <li><a href="/python/tutorial/Logic#truth-table">• Truth Tables</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals">Conditionals</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals#the-if-statement">• If Statements</a></li>
+          
+            <li><a href="/python/tutorial/Conditionals#ifelifelse-statements">• If/elif/else Statements</a></li>
+          
+            <li><a href="/python/tutorial/Loops">Loops</a></li>
+          
+            <li><a href="/python/tutorial/Loops#for-loop">• For Loop</a></li>
+          
+            <li><a href="/python/tutorial/Loops#while-loop">• While Loop</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value">Example 1</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value#linear-search">• Linear Search</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value#max-value">• Max Value</a></li>
+          
+            <li><a href="/python/tutorial/Functions">Functions</a></li>
+          
+            <li><a href="/python/tutorial/Functions#calling-functions">• Callings Functions</a></li>
+          
+            <li><a href="/python/tutorial/Functions#function-parameters">• Function Parameters</a></li>
+          
+            <li><a href="/python/tutorial/Functions#function-returns">• Function Returns</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued">Example 1.5</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued#linear-search">• Linear Search</a></li>
+          
+            <li><a href="/python/tutorial/Linear-Search-and-Max-Value-Continued#max-value">• Max Value</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Strings">
+    <meta itemprop="description" content="StringsStrings are sequences of characters in PythonIn short, Strings are/can be bits of text, numbers, and symbols that can be storedThe common way of denoting a string is to surround it with quotation marks, double or single&quot;This is a string&quot;&#39;This is also a string&#39;&quot;23&quot; # this is a string even though it contains only a number  Strings must begin and end with the same type of quotation mark# These are not valid strings since they start and begin with different quotation marks&quot;This is not a valid string&#39;&#39;This is also not a valid string&quot;Additionally we can nest quotation marks within strings if they are of different count&quot;Your vs You&#39;re&quot; # contains a single quote within double quotes string&#39;&quot;I like python,&quot; said James&#39; # contains double quotes within a single quote stringString Operator(s)Like numbers, strings can be manipulated in many ways. The most basic string manipulation is called concatenationConcatenation is the ability to ‘add’ one or more strings together using the + symbol&quot;Hello&quot; + &quot;Goodbye&quot; # equals HelloGoodbye&#39;Sweet&#39; + &#39; &#39; + &#39;and&#39; + &#39; &#39; + &#39;sour&#39; # equals Sweet and sour&quot;John &quot; + &quot;Doe&quot; # equals John DoeLater, we’ll explore some more of the different methods that the String Class has to offer in Python">
+    <meta itemprop="datePublished" content="2020-05-25T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Strings
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="strings">Strings</h2>
+
+<p>Strings are sequences of characters in Python</p>
+
+<p>In short, Strings are/can be bits of text, numbers, and symbols that can be stored</p>
+
+<p>The common way of denoting a string is to surround it with quotation marks, double or single</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"This is a string"</span>
+<span class="s">'This is also a string'</span>
+<span class="s">"23"</span> <span class="c1"># this is a string even though it contains only a number
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>Strings must begin and end with the same type of quotation mark</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># These are not valid strings since they start and begin with different quotation marks
+</span><span class="s">"This is not a valid string'
+
+'This is also not a valid string"</span>
+</code></pre></div></div>
+
+<p>Additionally we can nest quotation marks within strings if they are of different count</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Your vs You're"</span> <span class="c1"># contains a single quote within double quotes string
+</span><span class="s">'"I like python," said James'</span> <span class="c1"># contains double quotes within a single quote string
+</span></code></pre></div></div>
+
+<h1 id="string-operators">String Operator(s)</h1>
+
+<p>Like numbers, strings can be manipulated in many ways. The most basic string manipulation is called <strong>concatenation</strong></p>
+
+<p>Concatenation is the ability to ‘add’ one or more strings together using the + symbol</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Hello"</span> <span class="o">+</span> <span class="s">"Goodbye"</span> <span class="c1"># equals HelloGoodbye
+</span><span class="s">'Sweet'</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="s">'and'</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="s">'sour'</span> <span class="c1"># equals Sweet and sour
+</span><span class="s">"John "</span> <span class="o">+</span> <span class="s">"Doe"</span> <span class="c1"># equals John Doe
+</span></code></pre></div></div>
+
+<p>Later, we’ll explore some more of the different methods that the String Class has to offer in Python</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#tutorial" class="page__taxonomy-item" rel="tag">tutorial</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-25T00:00:00-04:00">May 25, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/tutorial/Numbers" class="pagination--pager" title="Numbers
+">Previous</a>
+    
+    
+      <a href="/python/tutorial/Variables" class="pagination--pager" title="Variables
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Linear-Search-and-Max-Value-Continued" rel="permalink">Linear Search And Max Value Continued
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Now that we know what functions are in Python and how we use them, why don’t we take a look back at our first examples and turn them into functions.
+
+Lets be...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Linear-Search-and-Max-Value" rel="permalink">Linear Search And Max Value
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Functions" rel="permalink">Functions
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Functions in Python are reusable lines of code that only run once they are called on.
+
+Functions can be used to shorten the overall lines of code needed in a...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hello/" rel="permalink">Hello
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Welcome to the Blog
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+  
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2020 Rohan's Coding Blog.</div>
+  
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
