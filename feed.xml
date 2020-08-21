@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2020-08-17T19:36:41-04:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">Linear Search And Max Value Continued</title><link href="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued" rel="alternate" type="text/html" title="Linear Search And Max Value Continued" /><published>2020-07-30T00:00:00-04:00</published><updated>2020-07-30T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued">&lt;p&gt;Now that we know what functions are in Python and how we use them, why don’t we take a look back at our first examples and turn them into functions.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2020-08-21T15:32:26-04:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">Files</title><link href="https://marcopollom.github.io/python/tutorial/Files" rel="alternate" type="text/html" title="Files" /><published>2020-08-03T00:00:00-04:00</published><updated>2020-08-03T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Files</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Files">&lt;p&gt;Python allows us to work with files natively, so we can store information for later, or read and analyze data .&lt;/p&gt;
+
+&lt;p&gt;In this lesson, we will cover the basics of opening, reading, and writing to files in Python.&lt;/p&gt;
+
+&lt;h2 id=&quot;file-basics&quot;&gt;File Basics&lt;/h2&gt;
+
+&lt;p&gt;Before we can start, it is good to know a few concepts of files on a computer.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;All files on a computer will have a path.&lt;/li&gt;
+  &lt;li&gt;At the end of the path will be the file name.&lt;/li&gt;
+  &lt;li&gt;Files can have an extension that declares the file type.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Depending on your operating system, file paths can look like:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/desktop/folder/file.txt&lt;/code&gt; for Mac and Linux&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\desktop\folder\file.txt&lt;/code&gt; for Windows&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In both cases, the file we are looking for is located on the desktop in a folder named ‘folder’. Additionally, both files have the same name ‘file’ and both are plain text documents, as denoted by the ‘.txt’ at the end.&lt;/p&gt;
+
+&lt;p&gt;Python supports both types of file paths on their respective platforms. If a file is in the same folder as your Python program, then there is no need to include a path to that file.&lt;/p&gt;
+
+&lt;h2 id=&quot;reading-files&quot;&gt;Reading Files&lt;/h2&gt;
+
+&lt;p&gt;To read a file in Python, we have to first call a function called ‘open’ and provide it a file name or file path, then set it equal to a variable. For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above code will open a file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello.txt&lt;/code&gt;, located in the current folder, and store all the contents of that in the variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To print the content of the file, simply call read method.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: The read function works like a cursor, thus once you call the read function, calling it again will output nothing. You would have to move the cursor back to the first character by calling the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seek&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Now works again
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;writing-to-files&quot;&gt;Writing to Files&lt;/h2&gt;
+
+&lt;p&gt;In Python, writing to files is as easy as reading a file. We start by opening a file, but this time also providing the writing argument:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bye.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# w stands for write
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now to write to a file, simply call the write method:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bye.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Good Bye!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By Default, Python does not put a new line after writing to a file, so the contents of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bye.txt&lt;/code&gt; would look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hello!Good Bye!&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To put a new line at the end of a write, we must add the new line symbol &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\n&lt;/code&gt; at the end of the line. This would look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bye.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Good Bye!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;closing-files&quot;&gt;Closing Files&lt;/h2&gt;
+
+&lt;p&gt;At some point in our program, we will have to close off the connection to files, when dealing with them in Python.&lt;/p&gt;
+
+&lt;p&gt;To close the files in the previous two examples, simply call the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;close&lt;/code&gt; methods.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'example.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Do stuff here
+&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Python allows us to work with files natively, so we can store information for later, or read and analyze data . In this lesson, we will cover the basics of opening, reading, and writing to files in Python. File Basics Before we can start, it is good to know a few concepts of files on a computer. All files on a computer will have a path. At the end of the path will be the file name. Files can have an extension that declares the file type. Depending on your operating system, file paths can look like: /desktop/folder/file.txt for Mac and Linux \desktop\folder\file.txt for Windows In both cases, the file we are looking for is located on the desktop in a folder named ‘folder’. Additionally, both files have the same name ‘file’ and both are plain text documents, as denoted by the ‘.txt’ at the end. Python supports both types of file paths on their respective platforms. If a file is in the same folder as your Python program, then there is no need to include a path to that file. Reading Files To read a file in Python, we have to first call a function called ‘open’ and provide it a file name or file path, then set it equal to a variable. For example: file = open(&quot;hello.txt&quot;) The above code will open a file called hello.txt, located in the current folder, and store all the contents of that in the variable file. To print the content of the file, simply call read method. file = open(&quot;hello.txt&quot;) file.read() Note: The read function works like a cursor, thus once you call the read function, calling it again will output nothing. You would have to move the cursor back to the first character by calling the seek function. file = open(&quot;hello.txt&quot;) file.read() file.seek(0) file.read() # Now works again Writing to Files In Python, writing to files is as easy as reading a file. We start by opening a file, but this time also providing the writing argument: file = open(&quot;bye.txt&quot;, &quot;w&quot;) # w stands for write Now to write to a file, simply call the write method: file = open(&quot;bye.txt&quot;) file.write(&quot;Hello!&quot;) file.write(&quot;Good Bye!&quot;) By Default, Python does not put a new line after writing to a file, so the contents of bye.txt would look like Hello!Good Bye!. To put a new line at the end of a write, we must add the new line symbol \n at the end of the line. This would look like: file = open(&quot;bye.txt&quot;) file.write(&quot;Hello!\n&quot;) file.write(&quot;Good Bye!\n&quot;) Closing Files At some point in our program, we will have to close off the connection to files, when dealing with them in Python. To close the files in the previous two examples, simply call the close methods. file = open('example.txt') # Do stuff here file.close()</summary></entry><entry><title type="html">Intermediate Intro</title><link href="https://marcopollom.github.io/python/tutorial/Intermediate-Intro" rel="alternate" type="text/html" title="Intermediate Intro" /><published>2020-08-03T00:00:00-04:00</published><updated>2020-08-03T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Intermediate-Intro</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Intermediate-Intro">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Welcome to the intermediate Python Tutorial, where we will cover more advanced topics in Python.&lt;/p&gt;
+
+&lt;p&gt;Some of the topics that we’ll discuss are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;File Input and Output&lt;/li&gt;
+  &lt;li&gt;Error Handling&lt;/li&gt;
+  &lt;li&gt;Working with external modules&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And much more!&lt;/p&gt;
+
+&lt;p&gt;Let’s Begin&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Introduction Welcome to the intermediate Python Tutorial, where we will cover more advanced topics in Python. Some of the topics that we’ll discuss are: File Input and Output Error Handling Working with external modules And much more! Let’s Begin</summary></entry><entry><title type="html">Linear Search And Max Value Continued</title><link href="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued" rel="alternate" type="text/html" title="Linear Search And Max Value Continued" /><published>2020-07-30T00:00:00-04:00</published><updated>2020-07-30T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued">&lt;p&gt;Now that we know what functions are in Python and how we use them, why don’t we take a look back at our first examples and turn them into functions.&lt;/p&gt;
 
 &lt;p&gt;Lets begin with Linear Search.&lt;/p&gt;
 
@@ -478,168 +576,4 @@ A block in python is the equivalent to 4-spaces and in most cases 1-tab.&lt;/p&g
 
 &lt;p&gt;Even though I recommend Visual Studio Code, any good Python editor will do. This tutorial will focus on Python 3, so make sure you have the latest stable build installed.&lt;/p&gt;
 
-&lt;p&gt;Let’s Begin!&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Introduction This series of lesson will be about the Python programming language. I will try to keep everything as beginner friendly as I can in these lessons. The only assumption I will make is that you know how to add :). If you want to follow along or program Python on your own, I recommend the following tools: Python 3 or newer Visual Studio Code as a text editor Codeskulptor an online Python Interpreter Even though I recommend Visual Studio Code, any good Python editor will do. This tutorial will focus on Python 3, so make sure you have the latest stable build installed. Let’s Begin!</summary></entry><entry><title type="html">Logic</title><link href="https://marcopollom.github.io/python/tutorial/Logic" rel="alternate" type="text/html" title="Logic" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Logic</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Logic">&lt;p&gt;Python allows us to control the flow of our program using logical operators and truth values: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;True&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;False&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;operators&quot;&gt;Operators&lt;/h3&gt;
-
-&lt;p&gt;Python also allows us to compare attributes of data by using the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Equality (==)&lt;/li&gt;
-  &lt;li&gt;Greater than or equal (&amp;gt;=)&lt;/li&gt;
-  &lt;li&gt;Less than or equal (&amp;lt;=)&lt;/li&gt;
-  &lt;li&gt;Less than (&amp;lt;)&lt;/li&gt;
-  &lt;li&gt;Greater than (&amp;gt;)&lt;/li&gt;
-  &lt;li&gt;Not equal (!=)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Double equals is used for checking equality and not used for variable assignment&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here are some examples:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;John&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;James&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# equals False
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# equals True
-&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'22'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# equals True
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The last example shows that the both the equality and the not-equality operator checks for types as well. A string will never be ‘equal’ to a number.&lt;/p&gt;
-
-&lt;h3 id=&quot;truth-table&quot;&gt;Truth Table&lt;/h3&gt;
-
-&lt;p&gt;There are 2 operators that allow for the combination of these truth values: &lt;strong&gt;and&lt;/strong&gt; and &lt;strong&gt;or&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;These operators will follow the following set of logical rules:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Statement 1&lt;/th&gt;
-      &lt;th&gt;Statement 2&lt;/th&gt;
-      &lt;th&gt;Statement 1 &lt;strong&gt;and&lt;/strong&gt; Statement 2&lt;/th&gt;
-      &lt;th&gt;Statement 1 &lt;strong&gt;or&lt;/strong&gt; Statement 2&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;T&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;T&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;T&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;F&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Logical statements have a similar execution style to that of Math.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Parentheses are computed first.&lt;/li&gt;
-  &lt;li&gt;Proceeds from left to right.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# equals True
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Python allows us to control the flow of our program using logical operators and truth values: True and False. Operators Python also allows us to compare attributes of data by using the following: Equality (==) Greater than or equal (&amp;gt;=) Less than or equal (&amp;lt;=) Less than (&amp;lt;) Greater than (&amp;gt;) Not equal (!=) Double equals is used for checking equality and not used for variable assignment Here are some examples: name = &quot;John&quot; age = 27 name == &quot;James&quot; # equals False age &amp;gt;= 18 # equals True 22 != '22' # equals True The last example shows that the both the equality and the not-equality operator checks for types as well. A string will never be ‘equal’ to a number. Truth Table There are 2 operators that allow for the combination of these truth values: and and or These operators will follow the following set of logical rules: Statement 1 Statement 2 Statement 1 and Statement 2 Statement 1 or Statement 2 T T T T T F F T F T F T F F F F Logical statements have a similar execution style to that of Math. Parentheses are computed first. Proceeds from left to right. (True and False) or True # equals True</summary></entry><entry><title type="html">Loops</title><link href="https://marcopollom.github.io/python/tutorial/Loops" rel="alternate" type="text/html" title="Loops" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Loops</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Loops">&lt;p&gt;Imagine we wanted to print out the first 100 positive integers (1, 2, 3, 4…). Till now, the only way we could do that is by manually printing each number:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;As you can probably tell this get very messy and becomes hard to maintain and edit. What if you wanted to print out the first 100 &lt;em&gt;even&lt;/em&gt; integers, you would have to change every number in each print statement.&lt;/p&gt;
-
-&lt;p&gt;Loops are another important concept in programming. Loops allow for &lt;em&gt;iteration&lt;/em&gt;, meaning that you can sequentially complete actions without having to hard-type them out.&lt;/p&gt;
-
-&lt;p&gt;There are 2 main types of loops in Python: For and While loops.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A &lt;em&gt;for loop&lt;/em&gt; is a loop that executes a specified amount of times.&lt;/li&gt;
-  &lt;li&gt;A &lt;em&gt;while loop&lt;/em&gt; is a loop that will execute as long as a certain condition is true (similar to that on an if statement).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The syntax for a &lt;em&gt;for loop&lt;/em&gt; is as follows:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iterable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# execute code in here
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The word &lt;strong&gt;var&lt;/strong&gt; symbolizes a variable and the word &lt;strong&gt;iterable&lt;/strong&gt; refers to an object that can be iterated (looped) over. For example, lists and dictionaries are iterable.&lt;/p&gt;
-
-&lt;p&gt;The syntax for a &lt;em&gt;while loop&lt;/em&gt; is as follows:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# execute code here:
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Here, the word &lt;strong&gt;condition&lt;/strong&gt; refers to any logical statement. Note: the condition must evaluate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;True&lt;/code&gt; in order for the loop to execute.&lt;/p&gt;
-
-&lt;p&gt;Let’s take a look on how we could perform the initial example using loops.&lt;/p&gt;
-
-&lt;h3 id=&quot;for-loop&quot;&gt;For loop&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Prints out the first 101 integers starting from 0 to 100. 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Range is another special function in Python. Range will create a list starting from 0 up until N-1, where N is the number you put into the parentheses.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;As you can see, using a for loop greatly reduced the amount of code needed to perform the original task.&lt;/p&gt;
-
-&lt;h3 id=&quot;while-loop&quot;&gt;While loop&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you were to run this program, you would notice 2 things. One, the program only prints out the number 0 and Two that it runs for ever.&lt;/p&gt;
-
-&lt;p&gt;This is what is known as an infinite loop, meaning it will never stop. These types of loops can be useful in some cases, but in our example it is a bug. Let’s fix this.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Prints out the first 101 integers starting from 0 to 100.`
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This is an improvement and it does the task, but I think we can make slightly better. Recall that variables allow us to increment and decrement using a simple shorthand; it would be useful here.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Prints out the first 101 integers starting from 0 to 100.`
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now it’s complete.&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Imagine we wanted to print out the first 100 positive integers (1, 2, 3, 4…). Till now, the only way we could do that is by manually printing each number: print(1) print(2) print(3) . . . As you can probably tell this get very messy and becomes hard to maintain and edit. What if you wanted to print out the first 100 even integers, you would have to change every number in each print statement. Loops are another important concept in programming. Loops allow for iteration, meaning that you can sequentially complete actions without having to hard-type them out. There are 2 main types of loops in Python: For and While loops. A for loop is a loop that executes a specified amount of times. A while loop is a loop that will execute as long as a certain condition is true (similar to that on an if statement). The syntax for a for loop is as follows: for var in iterable: # execute code in here The word var symbolizes a variable and the word iterable refers to an object that can be iterated (looped) over. For example, lists and dictionaries are iterable. The syntax for a while loop is as follows: while (condition): # execute code here: Here, the word condition refers to any logical statement. Note: the condition must evaluate to True in order for the loop to execute. Let’s take a look on how we could perform the initial example using loops. For loop for integer in range(101): print(integer) # Prints out the first 101 integers starting from 0 to 100. Range is another special function in Python. Range will create a list starting from 0 up until N-1, where N is the number you put into the parentheses. As you can see, using a for loop greatly reduced the amount of code needed to perform the original task. While loop number = 0 while number &amp;lt;= 100: print(number) If you were to run this program, you would notice 2 things. One, the program only prints out the number 0 and Two that it runs for ever. This is what is known as an infinite loop, meaning it will never stop. These types of loops can be useful in some cases, but in our example it is a bug. Let’s fix this. number = 0 while number &amp;lt;= 100: print(number) number = number + 1 # Prints out the first 101 integers starting from 0 to 100.` This is an improvement and it does the task, but I think we can make slightly better. Recall that variables allow us to increment and decrement using a simple shorthand; it would be useful here. number = 0 while number &amp;lt;= 100: print(number) number += 1 # Prints out the first 101 integers starting from 0 to 100.` Now it’s complete.</summary></entry></feed>
+&lt;p&gt;Let’s Begin!&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Introduction This series of lesson will be about the Python programming language. I will try to keep everything as beginner friendly as I can in these lessons. The only assumption I will make is that you know how to add :). If you want to follow along or program Python on your own, I recommend the following tools: Python 3 or newer Visual Studio Code as a text editor Codeskulptor an online Python Interpreter Even though I recommend Visual Studio Code, any good Python editor will do. This tutorial will focus on Python 3, so make sure you have the latest stable build installed. Let’s Begin!</summary></entry></feed>

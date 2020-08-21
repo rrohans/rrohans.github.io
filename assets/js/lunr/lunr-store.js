@@ -82,4 +82,16 @@ var store = [{
         "tags": ["tutorial"],
         "url": "https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued",
         "teaser": null
+      },{
+        "title": "Files",
+        "excerpt":"Python allows us to work with files natively, so we can store information for later, or read and analyze data . In this lesson, we will cover the basics of opening, reading, and writing to files in Python. File Basics Before we can start, it is good to know a...","categories": ["python"],
+        "tags": ["tutorial"],
+        "url": "https://marcopollom.github.io/python/tutorial/Files",
+        "teaser": null
+      },{
+        "title": "Intermediate Intro",
+        "excerpt":"Introduction   Welcome to the intermediate Python Tutorial, where we will cover more advanced topics in Python.   Some of the topics that we’ll discuss are:      File Input and Output   Error Handling   Working with external modules   And much more!   Let’s Begin  ","categories": ["python"],
+        "tags": ["tutorial"],
+        "url": "https://marcopollom.github.io/python/tutorial/Intermediate-Intro",
+        "teaser": null
       }]
