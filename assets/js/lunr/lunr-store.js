@@ -94,4 +94,16 @@ var store = [{
         "tags": ["tutorial"],
         "url": "https://marcopollom.github.io/python/tutorial/Intermediate-Intro",
         "teaser": null
+      },{
+        "title": "Error Handling",
+        "excerpt":"By now, you may have come across various errors in your Python programs. No worry, everyone makes mistakes the first time around. In this lesson, we will cover ways to handle and except errors in our Python programs. Error Examples There are many different error types in Python, each relating...","categories": ["python"],
+        "tags": ["tutorial"],
+        "url": "https://marcopollom.github.io/python/tutorial/Error-Handling",
+        "teaser": null
+      },{
+        "title": "String Formatting",
+        "excerpt":"In this lesson we will cover different ways to format strings in Python. What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the + sign. This was ok for small strings,...","categories": ["python"],
+        "tags": ["tutorial"],
+        "url": "https://marcopollom.github.io/python/tutorial/String-Formatting",
+        "teaser": null
       }]
