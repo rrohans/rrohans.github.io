@@ -106,4 +106,10 @@ var store = [{
         "tags": ["tutorial"],
         "url": "https://marcopollom.github.io/python/tutorial/String-Formatting",
         "teaser": null
+      },{
+        "title": "List Comprehension",
+        "excerpt":"List comprehension allows us to easily fill out contents of a list in a single line of code. For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this: l = [] for i in range(5): l.append(2 * i) print(l)...","categories": ["python"],
+        "tags": ["tutorial"],
+        "url": "https://marcopollom.github.io/python/tutorial/List-Comprehension",
+        "teaser": null
       }]

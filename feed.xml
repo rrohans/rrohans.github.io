@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2020-08-23T19:20:20-04:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">String Formatting</title><link href="https://marcopollom.github.io/python/tutorial/String-Formatting" rel="alternate" type="text/html" title="String Formatting" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/String-Formatting</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/String-Formatting">&lt;p&gt;In this lesson we will cover different ways to format strings in Python.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2020-09-01T15:18:26-04:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">List Comprehension</title><link href="https://marcopollom.github.io/python/tutorial/List-Comprehension" rel="alternate" type="text/html" title="List Comprehension" /><published>2020-09-01T00:00:00-04:00</published><updated>2020-09-01T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/List-Comprehension</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/List-Comprehension">&lt;p&gt;List comprehension allows us to easily fill out contents of a list in a single line of code.&lt;/p&gt;
+
+&lt;p&gt;For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Prints [0,2,4,6,8]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension.&lt;/p&gt;
+
+&lt;h2 id=&quot;syntax&quot;&gt;Syntax&lt;/h2&gt;
+
+&lt;p&gt;List comprehension follows the following syntax:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;lst&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thing&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iterable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expression&lt;/code&gt; is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thing&lt;/code&gt; stands for any variable that can be returned by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iterable.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Using list comprehension, we can simplify the first example to the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Prints [0,2,4,6,8]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;conditional-clause&quot;&gt;Conditional Clause&lt;/h2&gt;
+
+&lt;p&gt;Python’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;lst&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thing&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iterable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Condition&lt;/code&gt; being and valid conditional statement. For Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;odd_nums&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;odd_nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Prints [1, 3, 5, 7, 9]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">List comprehension allows us to easily fill out contents of a list in a single line of code. For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this: l = [] for i in range(5): l.append(2 * i) print(l) # Prints [0,2,4,6,8] While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension. Syntax List comprehension follows the following syntax: lst = [expression for thing in iterable] Here, expression is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc. thing stands for any variable that can be returned by iterable. Using list comprehension, we can simplify the first example to the following: l = [2 * i for i in range(5)] print(l) # Prints [0,2,4,6,8] Conditional Clause Python’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows: lst = [expression for thing in iterable if condition] Condition being and valid conditional statement. For Example: odd_nums = [i for i in range (10) if i % 2 == 1] print(odd_nums) # Prints [1, 3, 5, 7, 9]</summary></entry><entry><title type="html">String Formatting</title><link href="https://marcopollom.github.io/python/tutorial/String-Formatting" rel="alternate" type="text/html" title="String Formatting" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/String-Formatting</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/String-Formatting">&lt;p&gt;In this lesson we will cover different ways to format strings in Python.&lt;/p&gt;
 
 &lt;p&gt;What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; sign. This was ok for small strings, but as messages grow larger, it becomes a real pain.&lt;/p&gt;
 
@@ -508,88 +550,4 @@
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# wrong
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;We’ll go into detail on how to use boolean values later, but for now that is all you need to know about booleans.&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Booleans Booleans in Python are truth values, i.e. True or False. Booleans are generally used for control flow in programs. The 2 types of boolean values in Python are True and False Both boolean values must start with an Uppercase Letter True # correct False # correct false # wrong true # wrong We’ll go into detail on how to use boolean values later, but for now that is all you need to know about booleans.</summary></entry><entry><title type="html">Collections</title><link href="https://marcopollom.github.io/python/tutorial/Collections" rel="alternate" type="text/html" title="Collections" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Collections</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Collections">&lt;h2 id=&quot;lists-tuples-dictionaries&quot;&gt;Lists, Tuples, Dictionaries&lt;/h2&gt;
-
-&lt;p&gt;Lists, Tuples, Dictionaries are all collection data types, meaning that they can store multiple different items within one entry&lt;/p&gt;
-
-&lt;p&gt;Here are some formal definitions of these data  types and some examples:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Lists are collections that are ordered, changeable, and allow duplicates.&lt;/li&gt;
-  &lt;li&gt;Tuples are collections that are ordered, unchangeable, and allow duplicates.&lt;/li&gt;
-  &lt;li&gt;Dictionaries are collections that are unordered, changeable, indexed, and do not allow duplicates.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This is a list
-&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This is a Tuple
-&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;goodbye&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This is a dictionary
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;With that out of the way, let’s delve deeper into what those terms actually mean.&lt;/p&gt;
-
-&lt;h2 id=&quot;ordered-and-indexed&quot;&gt;Ordered and Indexed&lt;/h2&gt;
-
-&lt;h3 id=&quot;ordered&quot;&gt;Ordered&lt;/h3&gt;
-
-&lt;p&gt;In Python, both Lists and Tuples are ordered, meaning that each item within the collection has a specific number attached to them. We call this number the &lt;em&gt;index&lt;/em&gt; of the element.&lt;/p&gt;
-
-&lt;p&gt;Heres a list and a tuple with the same elements&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'c'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'c'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;In this example, the first element of both the list and tuple is the string ‘a’, and they share the same index, namely index 0.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;All lists and tuples start at index 0 and then increment by 1 for each next element&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Thus the letter ‘b’ has index 1, ‘c’ index 2, and so on.&lt;/p&gt;
-
-&lt;h3 id=&quot;indexed&quot;&gt;Indexed&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;When we say Dictionary is unordered, it means that the elements inside the collection do not have an index associated with them.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;However, Dictionaries do have a way of relating elements.&lt;/p&gt;
-
-&lt;p&gt;Dictionaries have two different attributes: &lt;em&gt;Keys and Definitions&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets breakdown the structure of a dictionary&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;key1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;definition1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;key2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;definition2&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# This is equivalent to {key1 : definition1, key2 : definition2} but is easier to read
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;A good way of thinking about dictionaries in Python is to think of dictionaries in language!&lt;/p&gt;
-
-&lt;p&gt;Keys are like words in a standard dictionary and each word will have a definition. In Python, both the keys and definitions can be of any data type.&lt;/p&gt;
-
-&lt;p&gt;They way we access elements within a dictionary is to use the &lt;strong&gt;key&lt;/strong&gt; as an index, similar to how we would look up a word in a real dictionary.&lt;/p&gt;
-
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'age'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If I wanted to see to access the String “John”, I would use the &lt;strong&gt;name&lt;/strong&gt; index.&lt;/p&gt;
-
-&lt;h2 id=&quot;changeable-vs-unchangeable&quot;&gt;Changeable vs Unchangeable&lt;/h2&gt;
-
-&lt;p&gt;The ability to change, often known as mutability, refers to the ability to alter the data within a collection.&lt;/p&gt;
-
-&lt;p&gt;Both lists and dictionaries are mutable data types, whereas tuples are not.&lt;/p&gt;
-
-&lt;h2 id=&quot;duplicates&quot;&gt;Duplicates&lt;/h2&gt;
-
-&lt;p&gt;Duplicate entries, meaning the same element, can appear multiple times within lists and tuples.&lt;/p&gt;
-
-&lt;p&gt;Dictionaries cannot have duplicate keys, however, they can have duplicate definitions.&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Lists, Tuples, Dictionaries Lists, Tuples, Dictionaries are all collection data types, meaning that they can store multiple different items within one entry Here are some formal definitions of these data types and some examples: Lists are collections that are ordered, changeable, and allow duplicates. Tuples are collections that are ordered, unchangeable, and allow duplicates. Dictionaries are collections that are unordered, changeable, indexed, and do not allow duplicates. [1, 2, 2, 3, 4, 5, 6, 23, 100, &quot;John&quot;] # This is a list (1, 2, 3, 4, 4, 5, 5, 5, 6, &quot;Hello&quot;) # This is a Tuple {1:&quot;hello&quot;, 2:&quot;goodbye&quot;, &quot;name&quot;:&quot;John Doe&quot;} # This is a dictionary With that out of the way, let’s delve deeper into what those terms actually mean. Ordered and Indexed Ordered In Python, both Lists and Tuples are ordered, meaning that each item within the collection has a specific number attached to them. We call this number the index of the element. Heres a list and a tuple with the same elements ['a', 'b', 'c', 1, 2, 3] ('a', 'b', 'c', 1 , 2, 3) In this example, the first element of both the list and tuple is the string ‘a’, and they share the same index, namely index 0. All lists and tuples start at index 0 and then increment by 1 for each next element Thus the letter ‘b’ has index 1, ‘c’ index 2, and so on. Indexed When we say Dictionary is unordered, it means that the elements inside the collection do not have an index associated with them. However, Dictionaries do have a way of relating elements. Dictionaries have two different attributes: Keys and Definitions Lets breakdown the structure of a dictionary { key1 : definition1, key2 : definition2 } # This is equivalent to {key1 : definition1, key2 : definition2} but is easier to read A good way of thinking about dictionaries in Python is to think of dictionaries in language! Keys are like words in a standard dictionary and each word will have a definition. In Python, both the keys and definitions can be of any data type. They way we access elements within a dictionary is to use the key as an index, similar to how we would look up a word in a real dictionary. For example: { 'name' : &quot;John&quot;, 'age' : 26 } If I wanted to see to access the String “John”, I would use the name index. Changeable vs Unchangeable The ability to change, often known as mutability, refers to the ability to alter the data within a collection. Both lists and dictionaries are mutable data types, whereas tuples are not. Duplicates Duplicate entries, meaning the same element, can appear multiple times within lists and tuples. Dictionaries cannot have duplicate keys, however, they can have duplicate definitions.</summary></entry></feed>
+&lt;p&gt;We’ll go into detail on how to use boolean values later, but for now that is all you need to know about booleans.&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Booleans Booleans in Python are truth values, i.e. True or False. Booleans are generally used for control flow in programs. The 2 types of boolean values in Python are True and False Both boolean values must start with an Uppercase Letter True # correct False # correct false # wrong true # wrong We’ll go into detail on how to use boolean values later, but for now that is all you need to know about booleans.</summary></entry></feed>

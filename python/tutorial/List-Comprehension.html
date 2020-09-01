@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>String Formatting - Rohan&#8217;s Coding Blog</title>
-<meta name="description" content="In this lesson we will cover different ways to format strings in Python.  What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the + sign. This was ok for small strings, but as messages grow larger, it becomes a real pain.  Fortunately, Python gives us an easy way to automatically input information into a string, using a process known as f strings.  f Strings  Note: f strings only work in python versions 3.6 or greater  Let’s create a simple greeting function:  def greet(name):     print(&quot;Hello &quot; + name )  greet(&quot;John&quot;) # Prints Hello John   This works, but lets convert this program to use f strings. To use an f string, simply put a lower-case, or upper-case, f before the first quotation mark, then place all the parameters you want within a set of curly braces: {}.  def greet(name):     print(f&quot;Hello {name}&quot;)  greet(&quot;John&quot;) # Prints Hello John   Addendum  Python f strings also allow for evaluation to happen within the curly braces, so we could write an expression and have it automatically entered into the string.  print(f&quot;2 + 6 = {2+6}&quot;) # Prints &quot;2 + 6 = 8&quot;">
+<!-- begin _includes/seo.html --><title>List Comprehension - Rohan&#8217;s Coding Blog</title>
+<meta name="description" content="List comprehension allows us to easily fill out contents of a list in a single line of code.  For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this: l = []  for i in range(5):     l.append(2 * i)  print(l) # Prints [0,2,4,6,8]   While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension.  Syntax  List comprehension follows the following syntax: lst = [expression for thing in iterable]   Here, expression is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc.  thing stands for any variable that can be returned by iterable.  Using list comprehension, we can simplify the first example to the following:  l = [2 * i for i in range(5)]  print(l) # Prints [0,2,4,6,8]   Conditional Clause  Python’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows:  lst = [expression for thing in iterable if condition]   Condition being and valid conditional statement. For Example:  odd_nums = [i for i in range (10) if i % 2 == 1]  print(odd_nums) # Prints [1, 3, 5, 7, 9]">
 
 
   <meta name="author" content="Rohan S">
@@ -22,26 +22,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
-<meta property="og:title" content="String Formatting">
-<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/String-Formatting">
+<meta property="og:title" content="List Comprehension">
+<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/List-Comprehension">
 
 
-  <meta property="og:description" content="In this lesson we will cover different ways to format strings in Python.  What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the + sign. This was ok for small strings, but as messages grow larger, it becomes a real pain.  Fortunately, Python gives us an easy way to automatically input information into a string, using a process known as f strings.  f Strings  Note: f strings only work in python versions 3.6 or greater  Let’s create a simple greeting function:  def greet(name):     print(&quot;Hello &quot; + name )  greet(&quot;John&quot;) # Prints Hello John   This works, but lets convert this program to use f strings. To use an f string, simply put a lower-case, or upper-case, f before the first quotation mark, then place all the parameters you want within a set of curly braces: {}.  def greet(name):     print(f&quot;Hello {name}&quot;)  greet(&quot;John&quot;) # Prints Hello John   Addendum  Python f strings also allow for evaluation to happen within the curly braces, so we could write an expression and have it automatically entered into the string.  print(f&quot;2 + 6 = {2+6}&quot;) # Prints &quot;2 + 6 = 8&quot;">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-08-21T00:00:00-04:00">
+  <meta property="og:description" content="List comprehension allows us to easily fill out contents of a list in a single line of code.  For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this: l = []  for i in range(5):     l.append(2 * i)  print(l) # Prints [0,2,4,6,8]   While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension.  Syntax  List comprehension follows the following syntax: lst = [expression for thing in iterable]   Here, expression is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc.  thing stands for any variable that can be returned by iterable.  Using list comprehension, we can simplify the first example to the following:  l = [2 * i for i in range(5)]  print(l) # Prints [0,2,4,6,8]   Conditional Clause  Python’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows:  lst = [expression for thing in iterable if condition]   Condition being and valid conditional statement. For Example:  odd_nums = [i for i in range (10) if i % 2 == 1]  print(odd_nums) # Prints [1, 3, 5, 7, 9]">
 
 
 
 
 
 
-<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/String-Formatting">
+
+  <meta property="article:published_time" content="2020-09-01T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/List-Comprehension">
 
 
 
@@ -305,13 +305,13 @@
           
             <li><a href="/python/tutorial/Error-Handling#finally">• Finally Statement</a></li>
           
-            <li><a href="/python/tutorial/String-Formatting" class="active">String Formatting</a></li>
+            <li><a href="/python/tutorial/String-Formatting">String Formatting</a></li>
           
             <li><a href="/python/tutorial/String-Formatting#f-strings">• f Strings</a></li>
           
             <li><a href="/python/tutorial/String-Formatting#addendum">• Addendum</a></li>
           
-            <li><a href="/python/tutorial/List-Comprehension">List Comprehension</a></li>
+            <li><a href="/python/tutorial/List-Comprehension" class="active">List Comprehension</a></li>
           
             <li><a href="/python/tutorial/List-Comprehension#syntax">• Syntax</a></li>
           
@@ -331,15 +331,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="String Formatting">
-    <meta itemprop="description" content="In this lesson we will cover different ways to format strings in Python.What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the + sign. This was ok for small strings, but as messages grow larger, it becomes a real pain.Fortunately, Python gives us an easy way to automatically input information into a string, using a process known as f strings.f StringsNote: f strings only work in python versions 3.6 or greaterLet’s create a simple greeting function:def greet(name):    print(&quot;Hello &quot; + name )greet(&quot;John&quot;) # Prints Hello JohnThis works, but lets convert this program to use f strings. To use an f string, simply put a lower-case, or upper-case, f before the first quotation mark, then place all the parameters you want within a set of curly braces: {}.def greet(name):    print(f&quot;Hello {name}&quot;)greet(&quot;John&quot;) # Prints Hello JohnAddendumPython f strings also allow for evaluation to happen within the curly braces, so we could write an expression and have it automatically entered into the string.print(f&quot;2 + 6 = {2+6}&quot;)# Prints &quot;2 + 6 = 8&quot;">
-    <meta itemprop="datePublished" content="2020-08-21T00:00:00-04:00">
+    <meta itemprop="headline" content="List Comprehension">
+    <meta itemprop="description" content="List comprehension allows us to easily fill out contents of a list in a single line of code.For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this:l = []for i in range(5):    l.append(2 * i)print(l) # Prints [0,2,4,6,8]While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension.SyntaxList comprehension follows the following syntax:lst = [expression for thing in iterable]Here, expression is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc.thing stands for any variable that can be returned by iterable.Using list comprehension, we can simplify the first example to the following:l = [2 * i for i in range(5)]print(l) # Prints [0,2,4,6,8]Conditional ClausePython’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows:lst = [expression for thing in iterable if condition]Condition being and valid conditional statement. For Example:odd_nums = [i for i in range (10) if i % 2 == 1]print(odd_nums) # Prints [1, 3, 5, 7, 9]">
+    <meta itemprop="datePublished" content="2020-09-01T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">String Formatting
+          <h1 id="page-title" class="page__title" itemprop="headline">List Comprehension
 </h1>
           
         </header>
@@ -347,38 +347,48 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>In this lesson we will cover different ways to format strings in Python.</p>
+        <p>List comprehension allows us to easily fill out contents of a list in a single line of code.</p>
 
-<p>What if we wanted to create a function that greets a user when the function is called. Until now, we would have to manually concatenate each string using the <code class="language-plaintext highlighter-rouge">+</code> sign. This was ok for small strings, but as messages grow larger, it becomes a real pain.</p>
+<p>For example, if we wanted to fill a list with the first 5 even numbers, we would write something like this:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
 
-<p>Fortunately, Python gives us an easy way to automatically input information into a string, using a process known as <code class="language-plaintext highlighter-rouge">f strings</code>.</p>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">l</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
 
-<h2 id="f-strings">f Strings</h2>
-
-<p><em>Note: f strings only work in python versions 3.6 or greater</em></p>
-
-<p>Let’s create a simple greeting function:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Hello "</span> <span class="o">+</span> <span class="n">name</span> <span class="p">)</span>
-
-<span class="n">greet</span><span class="p">(</span><span class="s">"John"</span><span class="p">)</span> <span class="c1"># Prints Hello John
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># Prints [0,2,4,6,8]
 </span></code></pre></div></div>
 
-<p>This works, but lets convert this program to use f strings. To use an f string, simply put a lower-case, or upper-case, <code class="language-plaintext highlighter-rouge">f</code> before the first quotation mark, then place all the parameters you want within a set of curly braces: <code class="language-plaintext highlighter-rouge">{}</code>.</p>
+<p>While not a terribly hard task to do, it takes 4 lines of code to do so. We can shorten it by using list comprehension.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">f"Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<h2 id="syntax">Syntax</h2>
 
-<span class="n">greet</span><span class="p">(</span><span class="s">"John"</span><span class="p">)</span> <span class="c1"># Prints Hello John
+<p>List comprehension follows the following syntax:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Here, <code class="language-plaintext highlighter-rouge">expression</code> is the value that is going to be applied into the list. This can be the form of any valid Python code, so functions, addition, multiplication, etc.</p>
+
+<p><code class="language-plaintext highlighter-rouge">thing</code> stands for any variable that can be returned by <code class="language-plaintext highlighter-rouge">iterable.</code></p>
+
+<p>Using list comprehension, we can simplify the first example to the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="c1"># Prints [0,2,4,6,8]
 </span></code></pre></div></div>
 
-<h1 id="addendum">Addendum</h1>
+<h2 id="conditional-clause">Conditional Clause</h2>
 
-<p>Python f strings also allow for evaluation to happen within the curly braces, so we could write an expression and have it automatically entered into the string.</p>
+<p>Python’s list comprehension also allows us to filter out results based on a conditional statement. The syntax is as follows:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">f"2 + 6 = </span><span class="si">{</span><span class="mi">2</span><span class="o">+</span><span class="mi">6</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-<span class="c1"># Prints "2 + 6 = 8"
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Condition</code> being and valid conditional statement. For Example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">odd_nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">odd_nums</span><span class="p">)</span> <span class="c1"># Prints [1, 3, 5, 7, 9]
 </span></code></pre></div></div>
 
         
@@ -428,7 +438,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-21T00:00:00-04:00">August 21, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-09-01T00:00:00-04:00">September 1, 2020</time></p>
         
       </footer>
 
@@ -437,12 +447,11 @@
       
   <nav class="pagination">
     
-      <a href="/python/tutorial/Error-Handling" class="pagination--pager" title="Error Handling
+      <a href="/python/tutorial/String-Formatting" class="pagination--pager" title="String Formatting
 ">Previous</a>
     
     
-      <a href="/python/tutorial/List-Comprehension" class="pagination--pager" title="List Comprehension
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -466,16 +475,16 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/python/tutorial/List-Comprehension" rel="permalink">List Comprehension
+        <a href="/python/tutorial/String-Formatting" rel="permalink">String Formatting
 </a>
       
     </h2>
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">List comprehension allows us to easily fill out contents of a list in a single line of code.
+    <p class="archive__item-excerpt" itemprop="description">In this lesson we will cover different ways to format strings in Python.
 
-For example, if we wanted to fill a list with the first 5 even ...</p>
+What if we wanted to create a function that greets a user when the function is call...</p>
   </article>
 </div>
 
