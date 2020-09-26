@@ -1,0 +1,430 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Modules - Rohan&#8217;s Coding Blog</title>
+<meta name="description" content="As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules.  Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!  Writing and Importing  Writing a module is no different that writing any other Python program. We define functions exactly the same way we have been doing all along. Lets say we have functions greet_user and sign_in in a file called hello.py. The function could look as follows.  # Greets the user def greet_user(name):     print(f&quot;Hello {name}!&quot;)  # Takes in a name and creates a user id based on length of the name def sign_in(name):     print(f&quot;Your user ID is: {len(name)}&quot;)   Now, our goal is to use these two functions within a different Python file. Lets create another file called main.py within the same directory as the hello.py file, i.e. in the same folder.  Within this main.py file, we need to import the code within the hello.py file as a module. We can do this by using the import statement. Our main file will begin with the following.  import hello  # Code below   It’s that simple! Now, to call the functions within the file, we must first type out the name of the file, followed by a dot then by the name of the function. For example myfile.myfunction().  In our simple program, that would look something like this:  import hello  hello.greet_user(&quot;John&quot;) # Prints Hello John  hello.sign_in(&quot;Jake&quot;) # Prints Your user ID is: 4   Implications  Modules are a very powerful feature in Python, as the allow us to use code that is already written for us in our own program. There are hundreds, if not thousands, of pre-written Python modules available; some commonly used modules are the math module, requests module, and numpy module, used for mathematical functions, http requests, and data science respectively.">
+
+
+  <meta name="author" content="Rohan S">
+  
+  <meta property="article:author" content="Rohan S">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rohan's Coding Blog">
+<meta property="og:title" content="Modules">
+<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Modules">
+
+
+  <meta property="og:description" content="As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules.  Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!  Writing and Importing  Writing a module is no different that writing any other Python program. We define functions exactly the same way we have been doing all along. Lets say we have functions greet_user and sign_in in a file called hello.py. The function could look as follows.  # Greets the user def greet_user(name):     print(f&quot;Hello {name}!&quot;)  # Takes in a name and creates a user id based on length of the name def sign_in(name):     print(f&quot;Your user ID is: {len(name)}&quot;)   Now, our goal is to use these two functions within a different Python file. Lets create another file called main.py within the same directory as the hello.py file, i.e. in the same folder.  Within this main.py file, we need to import the code within the hello.py file as a module. We can do this by using the import statement. Our main file will begin with the following.  import hello  # Code below   It’s that simple! Now, to call the functions within the file, we must first type out the name of the file, followed by a dot then by the name of the function. For example myfile.myfunction().  In our simple program, that would look something like this:  import hello  hello.greet_user(&quot;John&quot;) # Prints Hello John  hello.sign_in(&quot;Jake&quot;) # Prints Your user ID is: 4   Implications  Modules are a very powerful feature in Python, as the allow us to use code that is already written for us in our own program. There are hundreds, if not thousands, of pre-written Python modules available; some commonly used modules are the math module, requests module, and numpy module, used for mathematical functions, http requests, and data science respectively.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-09-25T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Modules">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "https://marcopollom.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Rohan's Coding Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Rohan's Coding Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/editor/">Editor</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Modules">
+    <meta itemprop="description" content="As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules.Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!Writing and ImportingWriting a module is no different that writing any other Python program. We define functions exactly the same way we have been doing all along. Lets say we have functions greet_user and sign_in in a file called hello.py. The function could look as follows.# Greets the userdef greet_user(name):    print(f&quot;Hello {name}!&quot;)# Takes in a name and creates a user id based on length of the namedef sign_in(name):    print(f&quot;Your user ID is: {len(name)}&quot;)Now, our goal is to use these two functions within a different Python file. Lets create another file called main.py within the same directory as the hello.py file, i.e. in the same folder.Within this main.py file, we need to import the code within the hello.py file as a module. We can do this by using the import statement. Our main file will begin with the following.import hello# Code belowIt’s that simple! Now, to call the functions within the file, we must first type out the name of the file, followed by a dot then by the name of the function. For example myfile.myfunction().In our simple program, that would look something like this:import hellohello.greet_user(&quot;John&quot;) # Prints Hello Johnhello.sign_in(&quot;Jake&quot;) # Prints Your user ID is: 4ImplicationsModules are a very powerful feature in Python, as the allow us to use code that is already written for us in our own program. There are hundreds, if not thousands, of pre-written Python modules available; some commonly used modules are the math module, requests module, and numpy module, used for mathematical functions, http requests, and data science respectively.">
+    <meta itemprop="datePublished" content="2020-09-25T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Modules
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as <em>modules</em>.</p>
+
+<p>Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!</p>
+
+<h2 id="writing-and-importing">Writing and Importing</h2>
+
+<p>Writing a module is no different that writing any other Python program. We define functions exactly the same way we have been doing all along. Lets say we have functions <code class="language-plaintext highlighter-rouge">greet_user</code> and <code class="language-plaintext highlighter-rouge">sign_in</code> in a file called <code class="language-plaintext highlighter-rouge">hello.py</code>. The function could look as follows.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Greets the user
+</span><span class="k">def</span> <span class="nf">greet_user</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">f"Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">!"</span><span class="p">)</span>
+
+<span class="c1"># Takes in a name and creates a user id based on length of the name
+</span><span class="k">def</span> <span class="nf">sign_in</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">f"Your user ID is: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, our goal is to use these two functions within a different Python file. Lets create another file called <code class="language-plaintext highlighter-rouge">main.py</code> within the same directory as the <code class="language-plaintext highlighter-rouge">hello.py</code> file, i.e. in the same folder.</p>
+
+<p>Within this <code class="language-plaintext highlighter-rouge">main.py</code> file, we need to <em>import</em> the code within the <code class="language-plaintext highlighter-rouge">hello.py</code> file as a module. We can do this by using the <code class="language-plaintext highlighter-rouge">import</code> statement. Our main file will begin with the following.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">hello</span>
+
+<span class="c1"># Code below
+</span></code></pre></div></div>
+
+<p>It’s that simple! Now, to call the functions within the file, we must first type out the name of the file, followed by a dot then by the name of the function. For example <code class="language-plaintext highlighter-rouge">myfile.myfunction()</code>.</p>
+
+<p>In our simple program, that would look something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">hello</span>
+
+<span class="n">hello</span><span class="p">.</span><span class="n">greet_user</span><span class="p">(</span><span class="s">"John"</span><span class="p">)</span> <span class="c1"># Prints Hello John
+</span>
+<span class="n">hello</span><span class="p">.</span><span class="n">sign_in</span><span class="p">(</span><span class="s">"Jake"</span><span class="p">)</span> <span class="c1"># Prints Your user ID is: 4
+</span></code></pre></div></div>
+
+<h2 id="implications">Implications</h2>
+
+<p>Modules are a very powerful feature in Python, as the allow us to use code that is already written for us in our own program. There are hundreds, if not thousands, of pre-written Python modules available; some commonly used modules are the <code class="language-plaintext highlighter-rouge">math</code> module, <code class="language-plaintext highlighter-rouge">requests</code> module, and <code class="language-plaintext highlighter-rouge">numpy</code> module, used for mathematical functions, http requests, and data science respectively.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-09-25T00:00:00-04:00">September 25, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/tutorial/List-Comprehension" class="pagination--pager" title="List Comprehension
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/List-Comprehension" rel="permalink">List Comprehension
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">List comprehension allows us to easily fill out contents of a list in a single line of code.
+
+For example, if we wanted to fill a list with the first 5 even ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/String-Formatting" rel="permalink">String Formatting
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">In this lesson we will cover different ways to format strings in Python.
+
+What if we wanted to create a function that greets a user when the function is call...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Error-Handling" rel="permalink">Error Handling
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">By now, you may have come across various errors in your Python programs. No worry, everyone makes mistakes the first time around. In this lesson, we will cov...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Intermediate-Intro" rel="permalink">Intermediate Intro
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+
+Welcome to the intermediate Python Tutorial, where we will cover more advanced topics in Python.
+
+Some of the topics that we’ll discuss are:
+
+
+...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+  
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2020 Rohan's Coding Blog.</div>
+  
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
