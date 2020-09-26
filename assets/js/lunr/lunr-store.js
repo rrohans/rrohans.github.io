@@ -114,8 +114,8 @@ var store = [{
         "teaser": null
       },{
         "title": "Modules",
-        "excerpt":"As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules. Modules in Python are files that contain different functions that we can use within another Python...","categories": [],
-        "tags": [],
+        "excerpt":"As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules. Modules in Python are files that contain different functions that we can use within another Python...","categories": ["python"],
+        "tags": ["tutorial"],
         "url": "https://marcopollom.github.io/python/tutorial/Modules",
         "teaser": null
       }]
