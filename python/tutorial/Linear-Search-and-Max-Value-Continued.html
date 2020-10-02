@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Linear Search And Max Value Continued">
-<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued">
+<meta property="og:url" content="http://localhost:4000/python/tutorial/Linear-Search-and-Max-Value-Continued">
 
 
   <meta property="og:description" content="Now that we know what functions are in Python and how we use them, why don’t we take a look back at our first examples and turn them into functions.  Lets begin with Linear Search.  Linear Search Function  In our previous example (Example 1), we came up with a way to find a number within a list of numbers. Here is what we made:  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for element in list_of_numbers: # Loops over each element.     if element == target_number:         print(&quot;Target Number Inside the List&quot;)         break # Exits the loop if the condition is True else:     print(&quot;Target Number is NOT Inside the List&quot;)   First, lets consider what the parameters for this function would be:    A List of numbers   Target number   We can begin to write our function:  def Linear_Search(number_list, target):     pass   We can now reuse some of the code we initially wrote to fill the body of this function.  def Linear_Search(number_list, target):     for number in number_list:         if number == target:             print(&quot;Target Number Inside the List&quot;)             return # Exits the function     print(&quot;Target Number is NOT Inside the List&quot;)   We are done! We can now call this function to perform this action.  nums = [1, 4, 7, 2 ,7, 20, 100] target_num = 22  def Linear_Search(number_list, target):     for number in number_list:         if number == target:             print(&quot;Target Number Inside the List&quot;)             return # Exits the function     print(&quot;Target Number is NOT Inside the List&quot;)  Linear_Search(nums, target_num) # Prints Target Number is NOT Inside the List   Max Value Function  Similarly, we can make the max value algorithm into a function. Lets start with what we had.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     if element &gt; max_value: # Checks if the current max value is less than an element         max_value = element # Switches the old max value to the new max value  print(max_value) # Prints max value   For this function, we only need one parameter: the list of numbers.  def max_value(number_list):     pass   We can fill in the body now.  def max_value(number_list):     maximum = number_list[0]     for number in number_list:         if number &gt; maximum:             maximum = number     return maximum # Returns max value   The function is complete! Notice how we return the maximum value instead of printing it out. To see the output of this function, we would have to print the function out itself.  num_list = [1, 4, 2, 3, 4, 5, 7, -40, 100, 32]  def max_value(number_list):     maximum = number_list[0]     for number in number_list:         if number &gt; maximum:             maximum = number     return maximum  print(max_value(num_list)) # Prints 100">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value-Continued">
+<link rel="canonical" href="http://localhost:4000/python/tutorial/Linear-Search-and-Max-Value-Continued">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "https://marcopollom.github.io/"
+      "url": "http://localhost:4000/"
     
   }
 </script>

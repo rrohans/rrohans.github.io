@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Modules">
-<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Modules">
+<meta property="og:url" content="http://localhost:4000/python/tutorial/Modules">
 
 
   <meta property="og:description" content="As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as modules.  Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!  Writing and Importing  Writing a module is no different that writing any other Python program. We define functions exactly the same way we have been doing all along. Lets say we have functions greet_user and sign_in in a file called hello.py. The function could look as follows.  # Greets the user def greet_user(name):     print(f&quot;Hello {name}!&quot;)  # Takes in a name and creates a user id based on length of the name def sign_in(name):     print(f&quot;Your user ID is: {len(name)}&quot;)   Now, our goal is to use these two functions within a different Python file. Lets create another file called main.py within the same directory as the hello.py file, i.e. in the same folder.  Within this main.py file, we need to import the code within the hello.py file as a module. We can do this by using the import statement. Our main file will begin with the following.  import hello  # Code below   It’s that simple! Now, to call the functions within the file, we must first type out the name of the file, followed by a dot then by the name of the function. For example myfile.myfunction().  In our simple program, that would look something like this:  import hello  hello.greet_user(&quot;John&quot;) # Prints Hello John  hello.sign_in(&quot;Jake&quot;) # Prints Your user ID is: 4   Implications  Modules are a very powerful feature in Python, as the allow us to use code that is already written for us in our own program. There are hundreds, if not thousands, of pre-written Python modules available; some commonly used modules are the math module, requests module, and numpy module, used for mathematical functions, http requests, and data science respectively.">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Modules">
+<link rel="canonical" href="http://localhost:4000/python/tutorial/Modules">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "https://marcopollom.github.io/"
+      "url": "http://localhost:4000/"
     
   }
 </script>

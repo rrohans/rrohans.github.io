@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Loops">
-<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Loops">
+<meta property="og:url" content="http://localhost:4000/python/tutorial/Loops">
 
 
   <meta property="og:description" content="Imagine we wanted to print out the first 100 positive integers (1, 2, 3, 4…). Till now, the only way we could do that is by manually printing each number:  print(1) print(2) print(3) . . .   As you can probably tell this get very messy and becomes hard to maintain and edit. What if you wanted to print out the first 100 even integers, you would have to change every number in each print statement.  Loops are another important concept in programming. Loops allow for iteration, meaning that you can sequentially complete actions without having to hard-type them out.  There are 2 main types of loops in Python: For and While loops.     A for loop is a loop that executes a specified amount of times.   A while loop is a loop that will execute as long as a certain condition is true (similar to that on an if statement).   The syntax for a for loop is as follows:  for var in iterable:     # execute code in here   The word var symbolizes a variable and the word iterable refers to an object that can be iterated (looped) over. For example, lists and dictionaries are iterable.  The syntax for a while loop is as follows:  while (condition):     # execute code here:   Here, the word condition refers to any logical statement. Note: the condition must evaluate to True in order for the loop to execute.  Let’s take a look on how we could perform the initial example using loops.  For loop for integer in range(101):     print(integer)  # Prints out the first 101 integers starting from 0 to 100.      Range is another special function in Python. Range will create a list starting from 0 up until N-1, where N is the number you put into the parentheses.   As you can see, using a for loop greatly reduced the amount of code needed to perform the original task.  While loop number = 0  while number &lt;= 100:     print(number)   If you were to run this program, you would notice 2 things. One, the program only prints out the number 0 and Two that it runs for ever.  This is what is known as an infinite loop, meaning it will never stop. These types of loops can be useful in some cases, but in our example it is a bug. Let’s fix this.  number = 0  while number &lt;= 100:     print(number)     number = number + 1  # Prints out the first 101 integers starting from 0 to 100.`   This is an improvement and it does the task, but I think we can make slightly better. Recall that variables allow us to increment and decrement using a simple shorthand; it would be useful here.  number = 0  while number &lt;= 100:     print(number)     number += 1  # Prints out the first 101 integers starting from 0 to 100.`   Now it’s complete.">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Loops">
+<link rel="canonical" href="http://localhost:4000/python/tutorial/Loops">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "https://marcopollom.github.io/"
+      "url": "http://localhost:4000/"
     
   }
 </script>
