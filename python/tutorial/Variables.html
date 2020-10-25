@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Variables">
-<meta property="og:url" content="http://localhost:4000/python/tutorial/Variables">
+<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Variables">
 
 
   <meta property="og:description" content="Variables  Variables are one of the most important tools while programming in any language.  Variables are containers that can store any data type, even other variables.  They allow you to store and manipulate values, while also inheriting the properties of the data type of the data stored.  In Python, declaring a variable is done by first giving the variable a name, then using the assignment operator (=), then the value you wish to store.  For example  name = &quot;James&quot;  age = 25  ID = 12345      Variable names cannot begin with a number   There are some conventions that are nice to follow when naming variables.     Variable names should generally be lower case.   Separate multiple words using underscores.   my_shopping_list = {     &#39;milk&#39; : 1,     &#39;eggs&#39; : 12,     &#39;chocolate&#39; : &#39;Dark&#39; }  copy_of_shopping_list = my_shopping_list   In the example above, we declared a shopping list of type dictionary following typical naming conventions. Then we created a copy of of the shopping list which preserved the dictionary type.  Operation Inheritance  As mentioned before, variables possess the same properties and operations as its data.  So a variable that stores a number can be added/subtracted/divided/multiplied/exponentiated/modulo with other numbers or variable containing numbers.  Similarly, variables containing strings can be concatenated with other strings or variable that contain strings.  first_name = &quot;James&quot; last_name = &quot;Jones&quot;  full_name = first_name + &quot; &quot; + last_name # equals James Jones   age = 26 current_year = 2046  birth_year = current_year - age # equals 2020   Special Properties  We can access different properties, depending on the data type stored in a variable.  Numbers  There are different increment operators in Python that act as shorthand for certain tasks. They include:     +=   -=   *=   /=   **=   %=   For Example  age = 25 age += 1 # equals 26  two = 2 two *= 2 # equals 4  mod = 100 mod %= 3 # equals 1   All of the preceding are shorthand for the statement:  variable_name = variable_name *math-operator* some_number   Strings, Lists, Dictionaries, Tuples  When a variable contains a string, list, or tuple, we can access elements of that data by using an index.     Strings are a collection of characters, thus are most similar to a list.   Let’s say we have strings that contain the first and last names of a person  first_name = &#39;James&#39; last_name = &#39;Jones&#39;   Now imagine we were writing a program that creates the initials of a person based on their first and last names; we want their first letter of each name.  By using a variable to store these names, all we have to do is index them using the first index, 0.  first_name = &#39;James&#39; last_name = &#39;Jones&#39;  first_letter_first_name = first_name[0] # equals J first_letter_last_name = last_name[0] # equals J   As seen above, to index a string (same thing for lists and tuples) we take the variable name and then put square brackets with the index number inside.  Dictionaries  Dictionaries are a bit different. Since they are not indexed, we’ll have to find another way to access elements within a dictionary.  Lucky, we can use the key of a dictionary to find the value associated with it.  Back to our shopping list example:  my_shopping_list = {     &#39;milk&#39; : 1,     &#39;eggs&#39; : 12,     &#39;chocolate&#39; : &#39;Dark&#39; }   In this dictionary, we have products as our keys and how many we need as their values (with the exception of chocolate since having too much is never an issue).  To get the values within the dictionary, all we have to do is pass in the key name inside square brackets:  my_shopping_list = {     &#39;milk&#39; : 1,     &#39;eggs&#39; : 12,     &#39;chocolate&#39; : &#39;Dark&#39; }  number_of_eggs = my_shopping_list[&#39;eggs&#39;] # equals 12 type_of_chocolate = my_shopping_list[&#39;chocolate&#39;] # equals &#39;Dark&#39;   Updating Values  Variables also make updating values within a collection data type really easy.  To update a value in a list or dictionary, all you have to do is specify the index/key you want to change and the value you wish to change it with.  my_list = [1, 2, 3, 4, 5] my_shopping_list = {     &#39;milk&#39; : 1,     &#39;eggs&#39; : 12,     &#39;chocolate&#39; : &#39;Dark&#39; }  my_shopping_list[&#39;milk&#39;] = 0 # changes from 1 to 0 my_list[4] = 100 # changes the 5 to 100       You cannot change the values within a tuple since tuples are immutable">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/python/tutorial/Variables">
+<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Variables">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "http://localhost:4000/"
+      "url": "https://marcopollom.github.io/"
     
   }
 </script>

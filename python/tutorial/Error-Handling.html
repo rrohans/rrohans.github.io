@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Error Handling">
-<meta property="og:url" content="http://localhost:4000/python/tutorial/Error-Handling">
+<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Error-Handling">
 
 
   <meta property="og:description" content="By now, you may have come across various errors in your Python programs. No worry, everyone makes mistakes the first time around. In this lesson, we will cover ways to handle and except errors in our Python programs.  Error Examples  There are many different error types in Python, each relating to a specific problem that could occur. Some of the most common errors made are:     IndexError - Caused by trying to access an element not in range   NameError - Caused by an undefined variable or function   SyntaxError - Caused by an error in syntax   TypeError - Caused when an operation is performed on different types   Lets take a deeper look at the last one, as it is a very important one.  TypeError  Let’s say we have a function that takes in two numbers and adds them together. Let’s call it add().  def add(x, y):     return x + y  two_plus_two = add(2, 2)  print(two_plus_two) # Prints 4   The add function works as expected. However, we do not check to see if the two inputs are both numbers, thus this could lead to a situation like this:  def add(x, y):     return x + y  var1 = add(2, &quot;Hello, World!&quot;)    If you were to run the code above, you would be met with an error that looks like this:  TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;  Python tells us that we cannot add a string to an integer. Though this might seem an easy fix, it demonstrates a use-case for the following topic.  Try Except statements  Try except statements follow similar syntax to that of if/else statements. A try block will exit if an error is raised.  try:     # Do something except:     # Do something if error happens   We can also specify the error in the except block by adding the name of the error we are expecting.  try:     # Do stuff except NameError:     print(&quot;Something is not defined&quot;) except TypeError:     print(&quot;You can&#39;t do that with these two items&quot;)  Finally  You can have as many exceptions as you want. We can also have a closing block of code that will run even if the program encounters an error. This is known as the finally block.  try:     # Do stuff except:     # Handle error finally:     # Do something after error   With this, we can go back to our example and try to handle the error we occurred.  Let’s modify the body of our function to use a try/except statement.  def add(x, y):     try:         return x + y     except TypeError:         return &quot;Parameters of the function are of different type&quot;     except:         return &quot;Something went wrong, try again&quot;  error = add(5, &quot;Hello, World&quot;)  print(error)  # Prints Parameters of the function are of different type">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/python/tutorial/Error-Handling">
+<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Error-Handling">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "http://localhost:4000/"
+      "url": "https://marcopollom.github.io/"
     
   }
 </script>

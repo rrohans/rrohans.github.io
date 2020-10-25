@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Rohan's Coding Blog">
 <meta property="og:title" content="Linear Search And Max Value">
-<meta property="og:url" content="http://localhost:4000/python/tutorial/Linear-Search-and-Max-Value">
+<meta property="og:url" content="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value">
 
 
   <meta property="og:description" content="Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far.  Linear Search  The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one.  Let’s begin.  First off, we need a list to actually check values in:  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers   Now we need a number that we wish to know if its in our list.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find   Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for elements in list_of_numbers: # Loops over each element.     pass # Pass tells Python to ignore the execute of the block   Great! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find  for element in list_of_numbers: # Loops over each element.     if element == target_number:         print(&quot;Target Number Inside the List&quot;)         break # Exits the loop if the condition is True else:     print(&quot;Target Number is NOT Inside the List&quot;)   And with that, we are done.  Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead.  Max Value  The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list.  We can reuse bits of the code used for the previous algorithm: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers  for element in list_of_numbers: # Loops over each element.     pass   With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     pass   Now we have to check each value against each value in the list. We can again use an if statement to help us out.  list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element.  for element in list_of_numbers: # Loops over each element.     if element &gt; max_value: # Checks if the current max value is less than an element         max_value = element # Switches the old max value to the new max value  print(max_value) # Prints max value   With that, we are done.  Note: This program would work even if the numbers in the list we’re not in ascending order.  Why not try to edit this program to find the smallest value in a list?">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/python/tutorial/Linear-Search-and-Max-Value">
+<link rel="canonical" href="https://marcopollom.github.io/python/tutorial/Linear-Search-and-Max-Value">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "http://localhost:4000/"
+      "url": "https://marcopollom.github.io/"
     
   }
 </script>
