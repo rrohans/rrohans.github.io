@@ -1,0 +1,495 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>termynal.js: A lightweight and modern animated terminal window - Rohan’s Coding Blog</title>
+<meta name="description" content="Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.">
+
+
+  <meta name="author" content="Rohan S">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rohan's Coding Blog">
+<meta property="og:title" content="termynal.js: A lightweight and modern animated terminal window">
+<meta property="og:url" content="https://marcopollom.github.io/assets/termynal/">
+
+
+  <meta property="og:description" content="Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://marcopollom.github.io/assets/termynal/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "https://marcopollom.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Rohan's Coding Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--default">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Rohan's Coding Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/python/tutorial/Intro">Python Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/editor/">Editor</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <h1 id="termynaljs-a-lightweight-and-modern-animated-terminal-window">termynal.js: A lightweight and modern animated terminal window</h1>
+
+<p>Typing animations are nothing new and Termynal isn’t particularly revolutionary. I wrote it because I needed a modern and lightweight version with minimal JavaScript and without messy, nested <code class="language-plaintext highlighter-rouge">setTimeout</code> calls. Most of the existing libraries rely on JavaScript for both the rendering, styling and animation, or even require jQuery. This is inconvenient, especially if you’re using the animation as part of your software’s documentation. If a user has JavaScript disabled, they will only see a blank window.</p>
+
+<p>Termynal uses <strong><code class="language-plaintext highlighter-rouge">async</code> and <code class="language-plaintext highlighter-rouge">await</code></strong>, which is now <a href="http://caniuse.com/#feat=async-functions">supported</a> pretty much across all major browsers. Termynal lets you write all input and output in <strong>plain HTML</strong>, and all styling in <strong>plain CSS</strong>. Non-JS users will still see the <strong>complete code</strong>, just no animation. The width and height of the terminal window is read off the original container. This means you won’t have to worry about sizing or layout reflows. Termynal also comes with a <strong>flexible HTML API</strong>, so you can use it without having to write a single line of JavaScript yourself.</p>
+
+<p><img src="https://user-images.githubusercontent.com/13643239/26935530-7f4e1152-4c6c-11e7-9e1a-06df36d4f9c9.gif" alt="termynal" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/13643239/26937306-4d851274-4c71-11e7-94cc-015d30a92e53.gif" alt="termynal2" /></p>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><strong>Simple example:</strong> <a href="https://codepen.io/ines/full/MoaRYM/">CodePen demo</a>, <a href="/assets/termynal/example.html"><code class="language-plaintext highlighter-rouge">example.html</code></a></li>
+  <li><strong>Custom example:</strong> <a href="https://codepen.io/ines/pen/mwegrX">CodePen demo</a>, <a href="/assets/termynal/example2.html"><code class="language-plaintext highlighter-rouge">example2.html</code></a></li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>First, you need to create a container. Each container should have a unique class or ID that tells Termynal where to find the lines to animate. Terminal will find the lines via their <code class="language-plaintext highlighter-rouge">data-ty</code> attribute and will then animate their text content. Apart from that, it won’t mess with your markup – so you’re free to add additional styling and attributes.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"termynal"</span> <span class="na">data-termynal</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty=</span><span class="s">"input"</span><span class="nt">&gt;</span>pip install spaCy<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty=</span><span class="s">"progress"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty</span><span class="nt">&gt;</span>Successfully installed spacy<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>When you include <a href="/assets/termynal/termynal.js"><code class="language-plaintext highlighter-rouge">termynal.js</code></a>, you can specify the container(s) as the <code class="language-plaintext highlighter-rouge">data-termynal-container</code> attribute. To initialise Termynal for more than one container, simply add the selectors separated by a <code class="language-plaintext highlighter-rouge">|</code>, for example <code class="language-plaintext highlighter-rouge">#termynal1|#termynal2</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"termynal.js"</span> <span class="na">data-termynal-container=</span><span class="s">"#termynal"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>You also need to include the stylesheet, <a href="/assets/termynal/termynal.css"><code class="language-plaintext highlighter-rouge">termynal.css</code></a>  in your site’s <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"termynal.css"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>That’s it!</p>
+
+<h3 id="customising-termynal">Customising Termynal</h3>
+
+<p>On each container, you can specify a number of settings as data attributes, and overwrite the animation delay after a line on each individual element.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"termynal"</span> <span class="na">data-ty-startDelay=</span><span class="s">"600"</span> <span class="na">data-ty-cursor=</span><span class="s">"▋"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty=</span><span class="s">"input"</span><span class="nt">&gt;</span> pip install spacy<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty</span> <span class="na">data-ty-delay=</span><span class="s">"250"</span><span class="nt">&gt;</span>Installing spaCy...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>If you don’t want to use the HTML API, you can also initialise Termynal in JavaScript. The constructor takes two arguments: the query selector of the container, and an optional object of settings.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">termynal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Termynal</span><span class="p">(</span><span class="dl">'</span><span class="s1">#termynal</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">startDelay</span><span class="p">:</span> <span class="mi">600</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>The following settings are available:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prefix</code></td>
+      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">ty</code></td>
+      <td>Prefix to use for data attributes.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">startDelay</code></td>
+      <td>number</td>
+      <td><code class="language-plaintext highlighter-rouge">600</code></td>
+      <td>Delay before animation, in ms.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">typeDelay</code></td>
+      <td>number</td>
+      <td><code class="language-plaintext highlighter-rouge">90</code></td>
+      <td>Delay between each typed character, in ms.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lineDelay</code></td>
+      <td>number</td>
+      <td><code class="language-plaintext highlighter-rouge">1500</code></td>
+      <td>Delay between each line, in ms.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">progressLength</code></td>
+      <td>number</td>
+      <td><code class="language-plaintext highlighter-rouge">40</code></td>
+      <td>Number of characters displayed as progress bar.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">progressChar</code></td>
+      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">'█'</code></td>
+      <td>Character to use for progress bar.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cursor</code></td>
+      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">'▋'</code></td>
+      <td>Character to use for cursor.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">noInit</code></td>
+      <td>boolean</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Don’t initialise the animation on load. This means you can call <code class="language-plaintext highlighter-rouge">Termynal.init()</code> yourself whenever and however you want.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lineData</code></td>
+      <td>Object[]</td>
+      <td><code class="language-plaintext highlighter-rouge">null</code></td>
+      <td><a href="#dynamically-loading-lines">Dynamically load</a> lines at instantiation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="prompts-and-animations">Prompts and animations</h2>
+
+<p>Each <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code> within the container represents a line of code. You can customise the way it’s rendered and animated via its data attributes. To be rendered by Termynal, each line needs at least an empty <code class="language-plaintext highlighter-rouge">data-ty</code> attribute.</p>
+
+<h3 id="data-ty-display-and-animation-style"><code class="language-plaintext highlighter-rouge">data-ty</code>: display and animation style</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>Simple output, no typing.</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;span data-ty&gt;Successfuly installed spacy&lt;/span&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">input</code></td>
+      <td>Simple prompt with user input and cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;span data-ty="input"&gt;pip install spacy&lt;/span&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">progress</code></td>
+      <td>Animated progress bar</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;span data-ty="progress"&gt;&lt;/span&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="data-ty-prompt-prompt-style"><code class="language-plaintext highlighter-rouge">data-ty-prompt</code>: prompt style</h3>
+
+<p>The prompt style specifies the characters that are displayed before each line, for example, to indicate command line inputs or interpreters (like <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> for Python). By default, Termynal displays a <code class="language-plaintext highlighter-rouge">$</code> before each user input line.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="~"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">~ hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="&gt;&gt;&gt;"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;&gt;&gt; hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="&gt;"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt; hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="▲"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">▲ hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="(.env)"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">(.env) hello world</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="input" data-ty-prompt="~/user &gt;"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">~/user &gt; hello world</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can also use custom prompts for non-animated output.</p>
+
+<p>To make prompts easy to customise and style, they are defined as <code class="language-plaintext highlighter-rouge">:before</code> pseudo-elements. Pseudo-elements are not selectable, so the user can copy-paste the commands and won’t have to worry about stray <code class="language-plaintext highlighter-rouge">$</code> or <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> characters.</p>
+
+<p>You can change the style by customising the elements in <a href="terminal.css">termynal.css</a>, or add your own rules for specific elements only.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Default style of prompts */</span>
+<span class="o">[</span><span class="nt">data-ty</span><span class="o">=</span><span class="s1">"input"</span><span class="o">]</span><span class="nd">:before</span><span class="o">,</span>
+<span class="o">[</span><span class="nt">data-ty-prompt</span><span class="o">]</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">0.75em</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--color-text-subtle</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">/* Make only &gt;&gt;&gt; prompt red */</span>
+<span class="o">[</span><span class="nt">data-ty-prompt</span><span class="o">=</span><span class="s1">"&gt;&gt;&gt;"</span><span class="o">]</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="data-ty-progresspercent-set-max-percent-of-progress"><code class="language-plaintext highlighter-rouge">data-ty-progressPercent</code>: set max percent of progress</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attributes</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="progress"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">████████████████████████████████████████ 100%</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-ty="progress" data-ty-progressPercent="81"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">█████████████████████████████████ 83%</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="data-ty-cursor-display-a-cursor"><code class="language-plaintext highlighter-rouge">data-ty-cursor</code>: display a cursor</h3>
+
+<p>Each line set to <code class="language-plaintext highlighter-rouge">data-ty="input"</code> will be rendered with an animated cursor. Termynal does this by adding a <code class="language-plaintext highlighter-rouge">data-ty-cursor</code> attribute, and removing it when the line animation has completed (after the delay specified as <code class="language-plaintext highlighter-rouge">lineDelay</code>). The value of the <code class="language-plaintext highlighter-rouge">data-ty-cursor</code> sets the cursor style – by default, a small unicode block is used: <code class="language-plaintext highlighter-rouge">▋</code>. You can set a custom cursor character in the global settings, or overwrite it on a particular line:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"#termynal"</span> <span class="na">data-termynal</span> <span class="na">data-ty-cursor=</span><span class="s">"|"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty=</span><span class="s">"input"</span><span class="nt">&gt;</span>Animated with cursor |<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">data-ty=</span><span class="s">"input"</span> <span class="na">data-ty-cursor=</span><span class="s">"▋"</span><span class="nt">&gt;</span>Animated with cursor ▋<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>You can also change the cursor style and animation in <a href="/assets/termynal/termynal.css"><code class="language-plaintext highlighter-rouge">termynal.css</code></a>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="nt">data-ty-cursor</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="n">attr</span><span class="p">(</span><span class="n">data-ty-cursor</span><span class="p">);</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="nb">monospace</span><span class="p">;</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="m">0.5em</span><span class="p">;</span>
+    <span class="nl">-webkit-animation</span><span class="p">:</span> <span class="nb">blink</span> <span class="m">1s</span> <span class="n">infinite</span><span class="p">;</span>
+            <span class="nl">animation</span><span class="p">:</span> <span class="nb">blink</span> <span class="m">1s</span> <span class="n">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="dynamically-loading-lines">Dynamically loading lines</h3>
+
+<p>Lines can be dynamically loaded by passing an array of line data objects, using the <a href="#data-ty-prompt-prompt-style">attribute suffixes</a>, as a property of the <a href="#customising-termynal">settings</a> object.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">termynal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Termynal</span><span class="p">(</span><span class="dl">'</span><span class="s1">#termynal</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="na">lineData</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pip install spacy</span><span class="dl">'</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Are you sure you want to install </span><span class="se">\'</span><span class="s1">spaCy</span><span class="se">\'</span><span class="s1">?</span><span class="dl">'</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span>  <span class="na">typeDelay</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="na">prompt</span><span class="p">:</span> <span class="dl">'</span><span class="s1">(y/n)</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">y</span><span class="dl">'</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="na">delay</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Installing spaCy...</span><span class="dl">'</span> <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+  
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2021 Rohan's Coding Blog.</div>
+  
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
