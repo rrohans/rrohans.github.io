@@ -120,8 +120,14 @@ var store = [{
         "teaser": null
       },{
         "title": "Controlling Motor With Raspberry Pi And Python",
-        "excerpt":"Controlling a Single Motor using a Raspberry Pi and Python In this lesson, we’re going see how we can control a DC motor using a Raspberry Pi and Python. What is a Raspberry Pi? “The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor...","categories": [],
+        "excerpt":"In this lesson, we’re going see how we can control a DC motor using a Raspberry Pi and Python. What is a Raspberry Pi? “The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It...","categories": [],
         "tags": [],
         "url": "https://marcopollom.github.io/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python",
+        "teaser": null
+      },{
+        "title": "Personal Projects",
+        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python\r     \r     More to Come!\r ","categories": [],
+        "tags": [],
+        "url": "https://marcopollom.github.io/personalprojects",
         "teaser": null
       }]
