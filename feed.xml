@@ -1,4 +1,184 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2021-01-30T17:44:28-05:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">Modules</title><link href="https://marcopollom.github.io/python/tutorial/Modules" rel="alternate" type="text/html" title="Modules" /><published>2020-09-25T00:00:00-04:00</published><updated>2020-09-25T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Modules</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Modules">&lt;p&gt;As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as &lt;em&gt;modules&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://marcopollom.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcopollom.github.io/" rel="alternate" type="text/html" /><updated>2021-02-02T11:52:48-05:00</updated><id>https://marcopollom.github.io/feed.xml</id><title type="html">Rohan’s Coding Blog</title><subtitle>Easy Python tutorial for beginners taught at an accessible level. Everything in the tutorial is easy to follow and there are many examples to help guide your learning experience.</subtitle><author><name>Rohan S</name></author><entry><title type="html">Controlling Motor With Raspberry Pi And Python</title><link href="https://marcopollom.github.io/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python" rel="alternate" type="text/html" title="Controlling Motor With Raspberry Pi And Python" /><published>2021-01-25T00:00:00-05:00</published><updated>2021-01-25T00:00:00-05:00</updated><id>https://marcopollom.github.io/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python</id><content type="html" xml:base="https://marcopollom.github.io/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python">&lt;h2 id=&quot;controlling-a-single-motor-using-a-raspberry-pi-and-python&quot;&gt;Controlling a Single Motor using a Raspberry Pi and Python&lt;/h2&gt;
+
+&lt;p&gt;In this lesson, we’re going see how we can control a DC motor using a Raspberry Pi and Python.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-a-raspberry-pi&quot;&gt;What is a Raspberry Pi?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python.” –Raspberry Pi Foundation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In short, a Raspberry Pi is a tiny computer that allows us to connect external hardware and integrate them using software.&lt;/p&gt;
+
+&lt;h3 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h3&gt;
+
+&lt;h4 id=&quot;items-needed&quot;&gt;Items Needed&lt;/h4&gt;
+
+&lt;p&gt;For this project, I will be using the following items:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry Pi Model B&lt;/a&gt; running Raspbian&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/s?k=L298N+Motor+Driver+Module&amp;amp;ref=nb_sb_noss&quot;&gt;L298N Motor Drive Board&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Bread Board&lt;/li&gt;
+  &lt;li&gt;5V DC Motor&lt;/li&gt;
+  &lt;li&gt;12V Power Supply&lt;/li&gt;
+  &lt;li&gt;Jumper Cables&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While you do not need exactly what I have, I recommend getting the L298N chip already on a PCB as it saves time and spares us from having to wire up the circuit ourselves.&lt;/p&gt;
+
+&lt;h4 id=&quot;wiring&quot;&gt;Wiring&lt;/h4&gt;
+
+&lt;p&gt;Before we can get to programing the motor, we must first wire up the device. We Can begin with the L298N Board.&lt;/p&gt;
+
+&lt;p&gt;For the L298N chip, we are only concerned about 6 pins for now. Those six include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;GND&lt;/li&gt;
+  &lt;li&gt;In 3&lt;/li&gt;
+  &lt;li&gt;In 4&lt;/li&gt;
+  &lt;li&gt;12V&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt;
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rotate270 {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+img{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+&lt;/style&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/images/IMG-1482.jpg&quot; class=&quot;rotate90&quot; width=&quot;500&quot; height=&quot;350&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this picture, the &lt;strong&gt;Brown&lt;/strong&gt; wire and the &lt;strong&gt;Purple&lt;/strong&gt; wire are both connected to GND, the &lt;strong&gt;Grey&lt;/strong&gt; wire is connected to the 12V pin, the &lt;strong&gt;Red&lt;/strong&gt; and &lt;strong&gt;Black&lt;/strong&gt; wires are connected to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&lt;/code&gt; respectively, and the &lt;strong&gt;Blue&lt;/strong&gt; and &lt;strong&gt;White&lt;/strong&gt; wires are connected to pins &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;In 3&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;In 4&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;On the Bread Board, we can connect the positive and negative ends of the power supply into their respective lines on the breadboard along with the leads from the pins of the L298N chip.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/images/IMG-1483.jpg&quot; class=&quot;rotate270&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the far right, the &lt;strong&gt;Grey&lt;/strong&gt;(Positive) and &lt;strong&gt;White&lt;/strong&gt;(Negative) wires are coming from the power supply and the far &lt;strong&gt;purple&lt;/strong&gt;(Negative) and &lt;strong&gt;Grey&lt;/strong&gt;(Positive) are coming from the L298N Chip.&lt;/p&gt;
+
+&lt;p&gt;Now we can wire up the motor to the board. Connect the &lt;strong&gt;Red&lt;/strong&gt;(Positive) and &lt;strong&gt;Black&lt;/strong&gt;(Negative) wires from the L298N to the motor leads.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/images/IMG-1487.jpg&quot; class=&quot;rotate270&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, we can wire up the Raspberry Pi to the rest of the circuit. Before we do so, lets look at the pin structure on the Pi.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;../../../assets/images/GPIO-Pinout-Diagram-2.png&quot; /&gt;
+&lt;figcaption&gt;Courtesy of the Raspberry Pi Foundation&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The pins of the Raspberry Pi are numbered from 1 to 40 starting at the top left and increasing by 1 going to the right. Together, these pins are known as GPIO pins (General Purpose Input/Output Pins).&lt;/p&gt;
+
+&lt;p&gt;Each pin has a different purpose, but we’re going to only use pins 7, 11, and 39.&lt;/p&gt;
+
+&lt;p&gt;Pins 7 and 11 are going to be used to output a signal to the L298N Chip, and Pin 39 is a grounding pin, which will be connected to the same ground as the L298N Chip.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../assets/images/IMG-1486.jpg&quot; class=&quot;rotate270&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the image above, the &lt;strong&gt;White&lt;/strong&gt; wire is connected to Pin 7, the &lt;strong&gt;Blue&lt;/strong&gt; wire is connected to Pin 11, and the &lt;strong&gt;Brown&lt;/strong&gt; wire is connected to Pin 39.&lt;/p&gt;
+
+&lt;p&gt;Now that we are done with the wiring, we can start coding!&lt;/p&gt;
+
+&lt;h4 id=&quot;programming-the-raspberry-pi&quot;&gt;Programming the Raspberry Pi&lt;/h4&gt;
+
+&lt;p&gt;To program our motor, we are going to use Python. If you are unfamiliar with the Python Programming language, feel free to visit my tutorial found &lt;a href=&quot;https://marcopollom.github.io/python/tutorial/Intro&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our friend in this part will the the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RPi.GPIO&lt;/code&gt; module.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Disclaimer&lt;/em&gt;&lt;/strong&gt; : The Raspberry Pi foundation recommends using bespoke modules for specific hardware. Since we are trying to learn how to use GPIO pins to interface with any external sensors and motors, we will use the old way of interfacing with them.&lt;/p&gt;
+
+&lt;p&gt;We can consider using Object Oriented design when implementing our motors. In other words, our motor will be represented by a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In a file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;motor.py&lt;/code&gt;, we will have the following code:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;RPi.GPIO&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Allows us to interface with the GPIO pins
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Motor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# sets 2GPIO pins for clockwise and counter clockwise 
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinFwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinBwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setmode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BOARD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Sets the pins to use the Board Numbering
+&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinFwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Sets pin 1
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinBwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Sets pin 2
+&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__del__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Destructor cleans up any open pins
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cleanup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Sets pin 1 to ON and pin 2 to OFF
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinFwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinBwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Sets pin 1 to OFF and pin 2 to ON
+&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinFwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Sets both pins to OFF
+&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinFwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pinBwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GPIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above code, a motor is defined by 2 main characteristics: a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pin forward&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pin backward&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__init()__&lt;/code&gt; method sets the two values for those pins, and methods &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;forward()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;backward()&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stop()&lt;/code&gt; cause the motor to spin clockwise, counterclockwise, and stop. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__del()__&lt;/code&gt; method is called when the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;motor&lt;/code&gt; object leaves scope, which will close any open pin connections.&lt;/p&gt;
+
+&lt;p&gt;Now in another file, call it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.py&lt;/code&gt;, we can import the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;motor class&lt;/code&gt; and create object from it.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.py&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;motor&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# imports our motor.py class
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Instantiates a motor using pins 7, 11
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;motor1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;motor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;motor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;motor1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# waits for 2 seconds 
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;motor1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;motor1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;motor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This file simply creates a motor object with pin 7 and pin 11 from the Raspberry Pi and moves the motor forward, backward, and stop.&lt;/p&gt;
+
+&lt;p&gt;To run this program, open up a terminal in the same location as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;motor.py&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.py&lt;/code&gt; files and type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python main.py&lt;/code&gt;. The motor will spin forward for 2 seconds, stop, then spin backwards for 2 seconds and stop.&lt;/p&gt;
+
+&lt;h4 id=&quot;advancements&quot;&gt;Advancements&lt;/h4&gt;
+
+&lt;p&gt;In this lesson, we only used 1 of the 2 motor heads available on the L298N chip. In future lessons, we will cover how to use both motor heads at the same time, as well as control the speed of the spin of the motors.&lt;/p&gt;</content><author><name>Rohan S</name></author><summary type="html">Controlling a Single Motor using a Raspberry Pi and Python In this lesson, we’re going see how we can control a DC motor using a Raspberry Pi and Python. What is a Raspberry Pi? “The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python.” –Raspberry Pi Foundation In short, a Raspberry Pi is a tiny computer that allows us to connect external hardware and integrate them using software. Getting Started Items Needed For this project, I will be using the following items: Raspberry Pi Model B running Raspbian L298N Motor Drive Board Bread Board 5V DC Motor 12V Power Supply Jumper Cables While you do not need exactly what I have, I recommend getting the L298N chip already on a PCB as it saves time and spares us from having to wire up the circuit ourselves. Wiring Before we can get to programing the motor, we must first wire up the device. We Can begin with the L298N Board. For the L298N chip, we are only concerned about 6 pins for now. Those six include: GND In 3 In 4 12V + - In this picture, the Brown wire and the Purple wire are both connected to GND, the Grey wire is connected to the 12V pin, the Red and Black wires are connected to + and - respectively, and the Blue and White wires are connected to pins In 3 and In 4. On the Bread Board, we can connect the positive and negative ends of the power supply into their respective lines on the breadboard along with the leads from the pins of the L298N chip. On the far right, the Grey(Positive) and White(Negative) wires are coming from the power supply and the far purple(Negative) and Grey(Positive) are coming from the L298N Chip. Now we can wire up the motor to the board. Connect the Red(Positive) and Black(Negative) wires from the L298N to the motor leads. Finally, we can wire up the Raspberry Pi to the rest of the circuit. Before we do so, lets look at the pin structure on the Pi. Courtesy of the Raspberry Pi Foundation The pins of the Raspberry Pi are numbered from 1 to 40 starting at the top left and increasing by 1 going to the right. Together, these pins are known as GPIO pins (General Purpose Input/Output Pins). Each pin has a different purpose, but we’re going to only use pins 7, 11, and 39. Pins 7 and 11 are going to be used to output a signal to the L298N Chip, and Pin 39 is a grounding pin, which will be connected to the same ground as the L298N Chip. In the image above, the White wire is connected to Pin 7, the Blue wire is connected to Pin 11, and the Brown wire is connected to Pin 39. Now that we are done with the wiring, we can start coding! Programming the Raspberry Pi To program our motor, we are going to use Python. If you are unfamiliar with the Python Programming language, feel free to visit my tutorial found here. Our friend in this part will the the RPi.GPIO module. Disclaimer : The Raspberry Pi foundation recommends using bespoke modules for specific hardware. Since we are trying to learn how to use GPIO pins to interface with any external sensors and motors, we will use the old way of interfacing with them. We can consider using Object Oriented design when implementing our motors. In other words, our motor will be represented by a class. In a file called motor.py, we will have the following code: import RPi.GPIO as GPIO # Allows us to interface with the GPIO pins class Motor: # sets 2GPIO pins for clockwise and counter clockwise def __init__(self, F, B): self.pinFwd = F self.pinBwd = B GPIO.setmode(GPIO.BOARD) # Sets the pins to use the Board Numbering GPIO.setup(self.pinFwd, GPIO.OUT) # Sets pin 1 GPIO.setup(self.pinBwd, GPIO.OUT) # Sets pin 2 def __del__(self): # Destructor cleans up any open pins GPIO.cleanup() def forward(self): # Sets pin 1 to ON and pin 2 to OFF GPIO.output(self.pinFwd, GPIO.HIGH) GPIO.output(self.pinBwd, GPIO.LOW) def backward(self): # Sets pin 1 to OFF and pin 2 to ON GPIO.output(self.pinFwd, GPIO.LOW) GPIO.output(self.Bwd, GPIO.HIGH) def stop(self): + # Sets both pins to OFF GPIO.output(self.pinFwd, GPIO.LOW) GPIO.output(self.pinBwd, GPIO.LOW) In the above code, a motor is defined by 2 main characteristics: a pin forward and a pin backward. The __init()__ method sets the two values for those pins, and methods forward(), backward(), and stop() cause the motor to spin clockwise, counterclockwise, and stop. The __del()__ method is called when the motor object leaves scope, which will close any open pin connections. Now in another file, call it main.py, we can import the motor class and create object from it. The main.py file: import motor # imports our motor.py class import time # Instantiates a motor using pins 7, 11 motor1 = motor.motor(7, 11) motor1.forward() time.sleep(2) # waits for 2 seconds motor1.stop() motor1.backward() time.sleep(2) motor.stop() This file simply creates a motor object with pin 7 and pin 11 from the Raspberry Pi and moves the motor forward, backward, and stop. To run this program, open up a terminal in the same location as the motor.py and main.py files and type python main.py. The motor will spin forward for 2 seconds, stop, then spin backwards for 2 seconds and stop. Advancements In this lesson, we only used 1 of the 2 motor heads available on the L298N chip. In future lessons, we will cover how to use both motor heads at the same time, as well as control the speed of the spin of the motors.</summary></entry><entry><title type="html">Modules</title><link href="https://marcopollom.github.io/python/tutorial/Modules" rel="alternate" type="text/html" title="Modules" /><published>2020-09-25T00:00:00-04:00</published><updated>2020-09-25T00:00:00-04:00</updated><id>https://marcopollom.github.io/python/tutorial/Modules</id><content type="html" xml:base="https://marcopollom.github.io/python/tutorial/Modules">&lt;p&gt;As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different files and import them as &lt;em&gt;modules&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Modules in Python are files that contain different functions that we can use within another Python file. Let’s see how we can write our first module!&lt;/p&gt;
 
@@ -570,4 +750,4 @@
 
 &lt;p&gt;Note: This program would work even if the numbers in the list we’re not in ascending order.&lt;/p&gt;
 
-&lt;p&gt;Why not try to edit this program to find the smallest value in a list?&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far. Linear Search The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one. Let’s begin. First off, we need a list to actually check values in: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers Now we need a number that we wish to know if its in our list. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find for elements in list_of_numbers: # Loops over each element. pass # Pass tells Python to ignore the execute of the block Great! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find for element in list_of_numbers: # Loops over each element. if element == target_number: print(&quot;Target Number Inside the List&quot;) break # Exits the loop if the condition is True else: print(&quot;Target Number is NOT Inside the List&quot;) And with that, we are done. Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead. Max Value The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list. We can reuse bits of the code used for the previous algorithm: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers for element in list_of_numbers: # Loops over each element. pass With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element. for element in list_of_numbers: # Loops over each element. pass Now we have to check each value against each value in the list. We can again use an if statement to help us out. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element. for element in list_of_numbers: # Loops over each element. if element &amp;gt; max_value: # Checks if the current max value is less than an element max_value = element # Switches the old max value to the new max value print(max_value) # Prints max value With that, we are done. Note: This program would work even if the numbers in the list we’re not in ascending order. Why not try to edit this program to find the smallest value in a list?</summary></entry><entry><title type="html">Hello</title><link href="https://marcopollom.github.io/hello/" rel="alternate" type="text/html" title="Hello" /><published>2020-05-27T00:00:00-04:00</published><updated>2020-05-27T00:00:00-04:00</updated><id>https://marcopollom.github.io/hello</id><content type="html" xml:base="https://marcopollom.github.io/hello/">&lt;h2 id=&quot;welcome-to-the-blog&quot;&gt;Welcome to the Blog&lt;/h2&gt;</content><author><name>Rohan S</name></author><summary type="html">Welcome to the Blog</summary></entry></feed>
+&lt;p&gt;Why not try to edit this program to find the smallest value in a list?&lt;/p&gt;</content><author><name>Rohan S</name></author><category term="tutorial" /><summary type="html">Since we have a good enough foundation with Python so far, I think it is time to introduce two simple algorithms that use most of what we have learned so far. Linear Search The first algorithm we will cover is Linear Search. Linear Search is the processes of checking if an element, for example number, exists within a list by checking each element one-by-one. Let’s begin. First off, we need a list to actually check values in: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers Now we need a number that we wish to know if its in our list. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find Now that we have a list and a target, we need a way to loop over every element. We could use a while loop, but since we are able to determine the length of the list, I think a for loop would suffice. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find for elements in list_of_numbers: # Loops over each element. pass # Pass tells Python to ignore the execute of the block Great! Now is the hard part. We need to check whether or not an element is in the list. We can do this by using an if statement and check against each element in the list. We must then print out the result list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers target_number = 7 # This is the number we want to find for element in list_of_numbers: # Loops over each element. if element == target_number: print(&quot;Target Number Inside the List&quot;) break # Exits the loop if the condition is True else: print(&quot;Target Number is NOT Inside the List&quot;) And with that, we are done. Note: This code would work even if the list contained other types of data. This is also not the only way to create this algorithm, give it a try using a while loop instead. Max Value The second algorithm we will create is called the Max Value Algorithm, and as the name implies, it searches for the largest number in a list. We can reuse bits of the code used for the previous algorithm: list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers for element in list_of_numbers: # Loops over each element. pass With that, we must first decide what the max value should be. Since our goal is to find the max value in a given list, we should first pick a value within the list to claim that the value we picked is the maximum value. While it does not matter which element you pick, it is common to claim the first element is the largest value. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element. for element in list_of_numbers: # Loops over each element. pass Now we have to check each value against each value in the list. We can again use an if statement to help us out. list_of_numbers = [1, 3, 5, 7, 9, 10, 12, 14] # Our list of numbers max_value = list_of_numbers[0] # Sets max value to the first element. for element in list_of_numbers: # Loops over each element. if element &amp;gt; max_value: # Checks if the current max value is less than an element max_value = element # Switches the old max value to the new max value print(max_value) # Prints max value With that, we are done. Note: This program would work even if the numbers in the list we’re not in ascending order. Why not try to edit this program to find the smallest value in a list?</summary></entry></feed>
