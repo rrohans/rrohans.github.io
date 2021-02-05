@@ -126,8 +126,14 @@ var store = [{
         "teaser": null
       },{
         "title": "Personal Projects",
-        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python\r     \r     More to Come!\r ","categories": [],
+        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python\r     \r \r     \r         Controlling a Seven Segment Display Using a Raspberry and Python\r     \r \r     More to Come!\r ","categories": [],
         "tags": [],
         "url": "https://marcopollom.github.io/personalprojects",
+        "teaser": null
+      },{
+        "title": "Controlling A Seven Segment Display With Raspberry Pi And Python",
+        "excerpt":"In this lesson, we are going to cover how we can control a seven segment display using a Raspberry Pi and Python. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found here. Getting Started Items Needed For this project, I...","categories": [],
+        "tags": [],
+        "url": "https://marcopollom.github.io/personalprojects/SSDisplay/Controlling-A-Seven-Segment-Display-with-Raspberry-Pi-and-Python",
         "teaser": null
       }]
