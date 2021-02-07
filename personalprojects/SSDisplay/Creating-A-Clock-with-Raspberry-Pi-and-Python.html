@@ -1,0 +1,527 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Creating A Clock With Raspberry Pi And Python - Rohan&#8217;s Coding Blog</title>
+<meta name="description" content="In this lesson, we are going to create a digital clock using a Raspberry Pi, Python, and a Seven Segment Display powered by a Max7219 chip. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found here.  Getting Started  Items Needed  For this project, I will be using the following items:    Raspberry Pi Model B running Raspbian   8 Digit 7-Segment Display   Bread Board   Jumper Cables   Wiring  Wiring the display will be simple since it only requires 5 pins to function. We will be using pins 2, 6, 19, 23, and 24. Pin 2 is connected to VCC, 6 to GND, 19 to DIN, 23 to CLK, and 24 to CS on the display.       Note: Be careful when wiring the VCC and GND pins to the display. A mistake could damage your Pi.   Setting up the Pi  For the display to work, we need to setup a special pin on the Raspberry Pi which is deactivated by default. In the upper left corner, click the raspberry icon and navigate to Preferences -&gt; Raspberry Pi Configurations. Select Raspberry Pi Configurations and a new menu will appear. At the top of the popup menu, select the Interfaces tab. Now, find the row that says SPI and select Enable and click Ok.  After setting up the SPI pin, we must now install the libraries needed to interface with the display. Open up a terminal and run the following commands:  sudo usermod -a -G spi,gpio pi  sudo apt install build-essential python3-dev python3-pip libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5  sudo -H pip3 install --upgrade --ignore-installed pip setuptools  sudo -H pip3 install --upgrade luma.led_matrix   These commands setup our Pi and allow us to use the Luma.led_matrix module. It is important to run these commands using Python3 since the module only supports versions 3.4 and greater.  Writing the code  To use the luma.led_matrix module, we must import a few libraries to initialize the display. In a main.py file, import the following:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time   Additionally, we imported the time and datetime modules that will help us create the clock. Create a function called clock that takes in a segment as its parameter:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time  def clock(seg):      while True:         now = datetime.now()         seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS         time.sleep(0.5) # Updates every 500ms   Now we can create a segment object and call the clock function on it:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time  def clock(seg):      while True:         now = datetime.now()         seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS         time.sleep(0.5) # Updates every 500ms  serial = spi(port=0, device=0, gpio=noop()) device = max7219(serial, cascaded=1) seg = sevensegment(device)  clock(seg)   To run the program, open up a terminal in the same directory as the main.py file and type python3 main.py.">
+
+
+  <meta name="author" content="Rohan S">
+  
+  <meta property="article:author" content="Rohan S">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Rohan's Coding Blog">
+<meta property="og:title" content="Creating A Clock With Raspberry Pi And Python">
+<meta property="og:url" content="https://marcopollom.github.io/personalprojects/SSDisplay/Creating-A-Clock-with-Raspberry-Pi-and-Python">
+
+
+  <meta property="og:description" content="In this lesson, we are going to create a digital clock using a Raspberry Pi, Python, and a Seven Segment Display powered by a Max7219 chip. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found here.  Getting Started  Items Needed  For this project, I will be using the following items:    Raspberry Pi Model B running Raspbian   8 Digit 7-Segment Display   Bread Board   Jumper Cables   Wiring  Wiring the display will be simple since it only requires 5 pins to function. We will be using pins 2, 6, 19, 23, and 24. Pin 2 is connected to VCC, 6 to GND, 19 to DIN, 23 to CLK, and 24 to CS on the display.       Note: Be careful when wiring the VCC and GND pins to the display. A mistake could damage your Pi.   Setting up the Pi  For the display to work, we need to setup a special pin on the Raspberry Pi which is deactivated by default. In the upper left corner, click the raspberry icon and navigate to Preferences -&gt; Raspberry Pi Configurations. Select Raspberry Pi Configurations and a new menu will appear. At the top of the popup menu, select the Interfaces tab. Now, find the row that says SPI and select Enable and click Ok.  After setting up the SPI pin, we must now install the libraries needed to interface with the display. Open up a terminal and run the following commands:  sudo usermod -a -G spi,gpio pi  sudo apt install build-essential python3-dev python3-pip libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5  sudo -H pip3 install --upgrade --ignore-installed pip setuptools  sudo -H pip3 install --upgrade luma.led_matrix   These commands setup our Pi and allow us to use the Luma.led_matrix module. It is important to run these commands using Python3 since the module only supports versions 3.4 and greater.  Writing the code  To use the luma.led_matrix module, we must import a few libraries to initialize the display. In a main.py file, import the following:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time   Additionally, we imported the time and datetime modules that will help us create the clock. Create a function called clock that takes in a segment as its parameter:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time  def clock(seg):      while True:         now = datetime.now()         seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS         time.sleep(0.5) # Updates every 500ms   Now we can create a segment object and call the clock function on it:  from luma.led_matrix.device import max7219 from luma.core.interface.serial import spi, noop from luma.core.virtual import viewport, sevensegment  import time # Needed for sleep() from datetime import datetime # Allows us to get the current system time  def clock(seg):      while True:         now = datetime.now()         seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS         time.sleep(0.5) # Updates every 500ms  serial = spi(port=0, device=0, gpio=noop()) device = max7219(serial, cascaded=1) seg = sevensegment(device)  clock(seg)   To run the program, open up a terminal in the same directory as the main.py file and type python3 main.py.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-02-07T00:00:00-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://marcopollom.github.io/personalprojects/SSDisplay/Creating-A-Clock-with-Raspberry-Pi-and-Python">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "https://marcopollom.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Rohan's Coding Blog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BG2LXS3PB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BG2LXS3PB8');
+</script>
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Rohan's Coding Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/python/tutorial/Intro">Python Tutorial</a>
+            </li><li class="masthead__menu-item">
+              <a href="/personalprojects">Personal Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/editor/">Editor</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Creating A Clock With Raspberry Pi And Python">
+    <meta itemprop="description" content="In this lesson, we are going to create a digital clock using a Raspberry Pi, Python, and a Seven Segment Display powered by a Max7219 chip. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found here.Getting StartedItems NeededFor this project, I will be using the following items:  Raspberry Pi Model B running Raspbian  8 Digit 7-Segment Display  Bread Board  Jumper CablesWiringWiring the display will be simple since it only requires 5 pins to function. We will be using pins 2, 6, 19, 23, and 24. Pin 2 is connected to VCC, 6 to GND, 19 to DIN, 23 to CLK, and 24 to CS on the display.  Note: Be careful when wiring the VCC and GND pins to the display. A mistake could damage your Pi.Setting up the PiFor the display to work, we need to setup a special pin on the Raspberry Pi which is deactivated by default. In the upper left corner, click the raspberry icon and navigate to Preferences -&gt; Raspberry Pi Configurations. Select Raspberry Pi Configurations and a new menu will appear. At the top of the popup menu, select the Interfaces tab. Now, find the row that says SPI and select Enable and click Ok.After setting up the SPI pin, we must now install the libraries needed to interface with the display. Open up a terminal and run the following commands:sudo usermod -a -G spi,gpio pisudo apt install build-essential python3-dev python3-pip libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5sudo -H pip3 install --upgrade --ignore-installed pip setuptoolssudo -H pip3 install --upgrade luma.led_matrixThese commands setup our Pi and allow us to use the Luma.led_matrix module. It is important to run these commands using Python3 since the module only supports versions 3.4 and greater.Writing the codeTo use the luma.led_matrix module, we must import a few libraries to initialize the display. In a main.py file, import the following:from luma.led_matrix.device import max7219from luma.core.interface.serial import spi, noopfrom luma.core.virtual import viewport, sevensegmentimport time # Needed for sleep()from datetime import datetime # Allows us to get the current system timeAdditionally, we imported the time and datetime modules that will help us create the clock. Create a function called clock that takes in a segment as its parameter:from luma.led_matrix.device import max7219from luma.core.interface.serial import spi, noopfrom luma.core.virtual import viewport, sevensegmentimport time # Needed for sleep()from datetime import datetime # Allows us to get the current system timedef clock(seg):    while True:        now = datetime.now()        seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS        time.sleep(0.5) # Updates every 500msNow we can create a segment object and call the clock function on it:from luma.led_matrix.device import max7219from luma.core.interface.serial import spi, noopfrom luma.core.virtual import viewport, sevensegmentimport time # Needed for sleep()from datetime import datetime # Allows us to get the current system timedef clock(seg):    while True:        now = datetime.now()        seg.text = now.strftime(&quot;%H-%M-%S&quot;) # Formats the time as HH-MM-SS        time.sleep(0.5) # Updates every 500msserial = spi(port=0, device=0, gpio=noop())device = max7219(serial, cascaded=1)seg = sevensegment(device)clock(seg)To run the program, open up a terminal in the same directory as the main.py file and type python3 main.py.">
+    <meta itemprop="datePublished" content="2021-02-07T00:00:00-05:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Creating A Clock With Raspberry Pi And Python
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <style>
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rotate270 {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+img{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+</style>
+
+<p>In this lesson, we are going to create a digital clock using a Raspberry Pi, Python, and a Seven Segment Display powered by a Max7219 chip. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found <a href="https://marcopollom.github.io/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python">here</a>.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<h4 id="items-needed">Items Needed</h4>
+
+<p>For this project, I will be using the following items:</p>
+<ul>
+  <li><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Raspberry Pi Model B</a> running Raspbian</li>
+  <li><a href="https://www.amazon.com/s?k=max7219+8+digit+seven+segment+display+module&amp;crid=27SR7M2HFJVCW&amp;sprefix=ma19x7219+seven%2Caps%2C194&amp;ref=nb_sb_ss_ts-doa-p_1_13">8 Digit 7-Segment Display</a></li>
+  <li>Bread Board</li>
+  <li>Jumper Cables</li>
+</ul>
+
+<h4 id="wiring">Wiring</h4>
+
+<p>Wiring the display will be simple since it only requires 5 pins to function. We will be using pins <code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">6</code>, <code class="language-plaintext highlighter-rouge">19</code>, <code class="language-plaintext highlighter-rouge">23</code>, and <code class="language-plaintext highlighter-rouge">24</code>. Pin 2 is connected to VCC, 6 to GND, 19 to DIN, 23 to CLK, and 24 to CS on the display.</p>
+
+<p><img src="../../../assets/images/IMG_1499.jpg" class="rotate270" /></p>
+
+<blockquote>
+  <p>Note: Be careful when wiring the VCC and GND pins to the display. A mistake could damage your Pi.</p>
+</blockquote>
+
+<h4 id="setting-up-the-pi">Setting up the Pi</h4>
+
+<p>For the display to work, we need to setup a special pin on the Raspberry Pi which is deactivated by default. In the upper left corner, click the raspberry icon and navigate to <code class="language-plaintext highlighter-rouge">Preferences -&gt; Raspberry Pi Configurations</code>. Select <code class="language-plaintext highlighter-rouge">Raspberry Pi Configurations</code> and a new menu will appear. At the top of the popup menu, select the <code class="language-plaintext highlighter-rouge">Interfaces</code> tab. Now, find the row that says <code class="language-plaintext highlighter-rouge">SPI</code> and select <code class="language-plaintext highlighter-rouge">Enable</code> and click <code class="language-plaintext highlighter-rouge">Ok</code>.</p>
+
+<p>After setting up the <code class="language-plaintext highlighter-rouge">SPI</code> pin, we must now install the libraries needed to interface with the display. Open up a terminal and run the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> spi,gpio pi
+
+<span class="nb">sudo </span>apt <span class="nb">install </span>build-essential python3-dev python3-pip libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5
+
+<span class="nb">sudo</span> <span class="nt">-H</span> pip3 <span class="nb">install</span> <span class="nt">--upgrade</span> <span class="nt">--ignore-installed</span> pip setuptools
+
+<span class="nb">sudo</span> <span class="nt">-H</span> pip3 <span class="nb">install</span> <span class="nt">--upgrade</span> luma.led_matrix
+</code></pre></div></div>
+
+<p>These commands setup our Pi and allow us to use the Luma.led_matrix module. It is important to run these commands using Python3 since the module only supports versions 3.4 and greater.</p>
+
+<h4 id="writing-the-code">Writing the code</h4>
+
+<p>To use the luma.led_matrix module, we must import a few libraries to initialize the display. In a <code class="language-plaintext highlighter-rouge">main.py</code> file, import the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">luma.led_matrix.device</span> <span class="kn">import</span> <span class="n">max7219</span>
+<span class="kn">from</span> <span class="nn">luma.core.interface.serial</span> <span class="kn">import</span> <span class="n">spi</span><span class="p">,</span> <span class="n">noop</span>
+<span class="kn">from</span> <span class="nn">luma.core.virtual</span> <span class="kn">import</span> <span class="n">viewport</span><span class="p">,</span> <span class="n">sevensegment</span>
+
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Needed for sleep()
+</span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="c1"># Allows us to get the current system time
+</span></code></pre></div></div>
+
+<p>Additionally, we imported the <code class="language-plaintext highlighter-rouge">time</code> and <code class="language-plaintext highlighter-rouge">datetime</code> modules that will help us create the clock. Create a function called clock that takes in a segment as its parameter:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">luma.led_matrix.device</span> <span class="kn">import</span> <span class="n">max7219</span>
+<span class="kn">from</span> <span class="nn">luma.core.interface.serial</span> <span class="kn">import</span> <span class="n">spi</span><span class="p">,</span> <span class="n">noop</span>
+<span class="kn">from</span> <span class="nn">luma.core.virtual</span> <span class="kn">import</span> <span class="n">viewport</span><span class="p">,</span> <span class="n">sevensegment</span>
+
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Needed for sleep()
+</span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="c1"># Allows us to get the current system time
+</span>
+<span class="k">def</span> <span class="nf">clock</span><span class="p">(</span><span class="n">seg</span><span class="p">):</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">seg</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">now</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H-%M-%S"</span><span class="p">)</span> <span class="c1"># Formats the time as HH-MM-SS
+</span>        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Updates every 500ms
+</span></code></pre></div></div>
+
+<p>Now we can create a segment object and call the clock function on it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">luma.led_matrix.device</span> <span class="kn">import</span> <span class="n">max7219</span>
+<span class="kn">from</span> <span class="nn">luma.core.interface.serial</span> <span class="kn">import</span> <span class="n">spi</span><span class="p">,</span> <span class="n">noop</span>
+<span class="kn">from</span> <span class="nn">luma.core.virtual</span> <span class="kn">import</span> <span class="n">viewport</span><span class="p">,</span> <span class="n">sevensegment</span>
+
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Needed for sleep()
+</span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="c1"># Allows us to get the current system time
+</span>
+<span class="k">def</span> <span class="nf">clock</span><span class="p">(</span><span class="n">seg</span><span class="p">):</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">seg</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">now</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H-%M-%S"</span><span class="p">)</span> <span class="c1"># Formats the time as HH-MM-SS
+</span>        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># Updates every 500ms
+</span>
+<span class="n">serial</span> <span class="o">=</span> <span class="n">spi</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gpio</span><span class="o">=</span><span class="n">noop</span><span class="p">())</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">max7219</span><span class="p">(</span><span class="n">serial</span><span class="p">,</span> <span class="n">cascaded</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="n">sevensegment</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">clock</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To run the program, open up a terminal in the same directory as the <code class="language-plaintext highlighter-rouge">main.py</code> file and type <code class="language-plaintext highlighter-rouge">python3 main.py</code>.</p>
+
+<p><img src="../../../assets/images/IMG_1500.gif" class="rotate270" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-02-07T00:00:00-05:00">February 7, 2021</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/personalprojects/SSDisplay/Controlling-A-Seven-Segment-Display-with-Raspberry-Pi-and-Python" class="pagination--pager" title="Controlling A Seven Segment Display With Raspberry Pi And Python
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/personalprojects/SSDisplay/Controlling-A-Seven-Segment-Display-with-Raspberry-Pi-and-Python" rel="permalink">Controlling A Seven Segment Display With Raspberry Pi And Python
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+In this lesson, we are going to cover how we can control a seven segment display using a Raspberry Pi and Python. If you are unfamiliar with what a Raspber...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/personalprojects" rel="permalink">Personal Projects
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+
+    
+        Controlling Motors Using a Raspberry Pi and Python
+    
+
+    
+        Controlling a Seven Segment Display Using a Raspberry and Python
+    
+
+...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/personalprojects/motors/Controlling-Motor-With-Raspberry-Pi-and-Python" rel="permalink">Controlling Motor With Raspberry Pi And Python
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">In this lesson, we’re going see how we can control a DC motor using a Raspberry Pi and Python.
+
+What is a Raspberry Pi?
+
+
+  “The Raspberry Pi is a low cost, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/tutorial/Modules" rel="permalink">Modules
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">As we code more and more, our Python files tend to get larger and harder to maintain. Fortunately, Python allows us to split up our program into different fi...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://github.com/Marcopollom" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+  
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2021 Rohan's Coding Blog.</div>
+  
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BG2LXS3PB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BG2LXS3PB8');
+</script>
+
+
+
+
+
+  </body>
+</html>
