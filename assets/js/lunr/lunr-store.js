@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Personal Projects",
-        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python\r     \r \r     \r         Controlling a Seven Segment Display Using a Raspberry and Python\r     \r \r     \r         Creating a Clock with Raspberry Pi and Python\r     \r \r     More to Come!\r ","categories": [],
+        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python (Part 1)\r     \r \r     \r         Controlling a Seven Segment Display Using a Raspberry and Python\r     \r \r     \r         Creating a Clock with Raspberry Pi and Python\r     \r \r     \r         Controlling Motors Using a Raspberry Pi and Python (Part 2)\r     \r \r     More to Come!\r ","categories": [],
         "tags": [],
         "url": "/personalprojects",
         "teaser": null
@@ -141,5 +141,11 @@ var store = [{
         "excerpt":"In this lesson, we are going to create a digital clock using a Raspberry Pi, Python, and a Seven Segment Display powered by a Max7219 chip. If you are unfamiliar with what a Raspberry Pi or Python, please read my previous article on both found here. Getting Started Items Needed...","categories": [],
         "tags": [],
         "url": "/personalprojects/SSDisplay/Creating-A-Clock-with-Raspberry-Pi-and-Python",
+        "teaser": null
+      },{
+        "title": "Controlling Two Motors Using Raspberry Pi And Python",
+        "excerpt":"This is a continuation to my first lesson on how we can control a DC motor using a Raspberry Pi and Python. If you would like to follow along with this lesson, and have not yet seen the first one, please read the first article found here. In this lesson,...","categories": [],
+        "tags": [],
+        "url": "/personalprojects/motors/Controlling-Two-Motors-Using-Raspberry-Pi-and-Python",
         "teaser": null
       }]
