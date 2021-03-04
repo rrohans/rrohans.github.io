@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Personal Projects",
-        "excerpt":"\r \r \r     \r         Controlling Motors Using a Raspberry Pi and Python (Part 1)\r     \r \r     \r         Controlling a Seven Segment Display Using a Raspberry and Python\r     \r \r     \r         Creating a Clock with Raspberry Pi and Python\r     \r \r     \r         Controlling Motors Using a Raspberry Pi and Python (Part 2)\r     \r \r     More to Come!\r ","categories": [],
+        "excerpt":"Controlling Motors Using a Raspberry Pi and Python (Part 1) Controlling a Seven Segment Display Using a Raspberry and Python Creating a Clock with Raspberry Pi and Python Controlling Motors Using a Raspberry Pi and Python (Part 2) Controlling Motors Using a Raspberry Pi and Python (Part 3) More to...","categories": [],
         "tags": [],
         "url": "/personalprojects",
         "teaser": null
@@ -147,5 +147,11 @@ var store = [{
         "excerpt":"This is a continuation to my first lesson on how we can control a DC motor using a Raspberry Pi and Python. If you would like to follow along with this lesson, and have not yet seen the first one, please read the first article found here. In this lesson,...","categories": [],
         "tags": [],
         "url": "/personalprojects/motors/Controlling-Two-Motors-Using-Raspberry-Pi-and-Python",
+        "teaser": null
+      },{
+        "title": "Controlling The Speed Of The Motor",
+        "excerpt":"This is a continuation to my first lesson on how we can control a DC motor using a Raspberry Pi and Python. If you would like to follow along with this lesson, and have not yet seen the first one, please read the first article found here. In this lesson,...","categories": [],
+        "tags": [],
+        "url": "/personalprojects/motors/Controlling-the-Speed-of-the-Motor",
         "teaser": null
       }]
